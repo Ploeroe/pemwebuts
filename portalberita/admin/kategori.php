@@ -53,70 +53,66 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 
 		<input type="hidden" name="ID" value="<?=(isset($ID) ? $ID : '');?>">
 
-		<fieldset>
-			<legend>Tambah Kategori</legend>
-
-			<div class="formnama w30">Kategori:<br>
-			<input type="text" name="kategori" placeholder="Nama Kategori" value="<?=(isset($kategori) ? $kategori : '');?>" class="form100">
+		<fieldset class="formkategori mx-auto">
+			<legend class="subtitle">Tambah Kategori</legend>
+		<div class="inputkategori">
+			<div class="formnama">Kategori : <br>
+				<input type="text" name="kategori" placeholder="Nama Kategori" value="<?=(isset($kategori) ? $kategori : '');?>" class="kotakinput">
 			</div> 
-
-			<div class="formnama w30">Alias:<br>
-			<input type="text" name="alias" placeholder="Alias" value="<?=(isset($alias) ? $alias : '');?>" class="form100">
+			<div class="formnama">Alias : <br>
+				<input type="text" name="alias" placeholder="Alias" value="<?=(isset($alias) ? $alias : '');?>" class="kotakinput">
 			</div> 
+			<div class="formnama">Tampilkan : <br>
 
-			<div class="formnama w30">Tampilkan:<br>
-
-				<select name="terbit">
+				<select name="terbit" class="kotakpilihan">
 					<option value="1" <?=((isset($terbit) && $terbit==1) ? 'selected' : ''); ?>>Yes</option>
 					<option value="0" <?=((isset($terbit) && $terbit==0) ? 'selected' : ''); ?>>No</option>
 				</select>
 
 			</div>
-
-			<input type="submit" name="<?=(isset($ID) ? 'editkategori' : 'tambahkategori');?>" value="<?=(isset($ID) ? 'Edit' : 'Tambah');?>" class="btn-primary">
+			<input type="submit" name="<?=(isset($ID) ? 'editkategori' : 'tambahkategori');?>" value="<?=(isset($ID) ? 'Edit' : 'Tambah');?>" class="btnkategori">
+		</div>
 		</fieldset>
 	</form>
 	
 </div>
-<div class="clear"></div>
 
 <div class="w100">
-		<fieldset>
-			<legend>List Kategori</legend>
+		<fieldset class="listkategori mx-auto mt-5">
+			<legend class="subtitle">List Kategori</legend>
 
-			<div class="w100 fl list bg_dark">
-				<div class="w5 fl center">ID</div>
-				<div class="w40 fl">Kategori Name</div>
-				<div class="w30 fl">Alias</div>
-				<div class="w20 fl">Aksi</div>
-				<div class="clear"></div>
-			</div>
+			<table class="table table-success table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Kategori Name</th>
+						<th>Alias</th>
+						<th>Aksi</th>
+					</tr>
+				</thead>
 
 			<?php 
 
 			global $connect;
 
-			$sql = mysqli_query($connect,"SELECT * FROM kategori ORDER BY ID DESC");
+			$sql = mysqli_query($connect,"SELECT * FROM kategori ORDER BY ID ASC");
 			while($r = mysqli_fetch_array($sql))
 			{
 				extract($r);
 			?>
-
-			<div class="w100 fl list">
-				<div class="w5 fl center"><?=$ID?></div>
-				<div class="w40 fl"><?=$Kategori?></div>
-				<div class="w30 fl"><?=$alias?></div>
-				<div class="w20 fl">
-					<a href="./?mod=kategori&act=edit&id=<?=$ID?>" class="btn btn-primary small">Edit</a> <a href="./?mod=kategori&act=hapus&id=<?=$ID?>" class="btn btn-red small">Delete</a> 
-
-				</div>
-				<div class="clear"></div>
-			</div>
-
+				<tbody>
+					<tr>
+						<td><?=$ID?></td>
+						<td><?=$Kategori?></td>
+						<td><?=$alias?></td>
+						<td>
+							<a href="./?mod=kategori&act=edit&id=<?=$ID?>" class="btnedit">Edit</a> <a href="./?mod=kategori&act=hapus&id=<?=$ID?>" class="btndelete">Delete</a> 
+						</td>
+					</tr>
+				</tbody>
 			<?php 
 			}
 			 ?>
 
 		</fieldset>
 </div>
-<div class="clear"></div>
