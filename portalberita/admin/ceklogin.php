@@ -3,6 +3,14 @@ include_once('../inc/fungsi.php');
 
 session_start();
 
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
 if(isset($_GET["keluar"]) && $_GET["keluar"]=='yes'){
 	session_destroy();
 	header('Location:index.php');
@@ -17,31 +25,45 @@ if (isset($_POST["submit"] ) ) {
 	$username = mysqli_real_escape_string($connect,$_POST['username']);
 	$password = mysqli_real_escape_string($connect,$_POST['password']);
 
+	$result = mysqli_query($connect, "SELECT * FROM administrator WHERE username = '$username'");
+	
+	if(mysqli_num_rows($result) === 1){
+		$row = mysqli_fetch_assoc($result);
+		if(password_verify($password,$row['password'])){
+			$numrow = mysqli_num_rows($result);
+			$r = mysqli_fetch_array($result);
 
-	$sql 	= "SELECT * FROM administrator WHERE username='".$username."' AND password='".$password."' ";
-
-	$result = mysqli_query($connect,$sql);
-	$numrow	= mysqli_num_rows($result);
-
-	$r = mysqli_fetch_array($result);
-
-	if($numrow > 0)
-	{
-		$_SESSION["loginadmin"] = $r['username'];
-		$_SESSION["loginadminid"] = $r['ID'];
-		$_SESSION["loginadminemail"] = $r['email'];
-		$_SESSION["loginadminnama"] = $r['Nama'];
-
-	}else{
-
-		$error =  "User dan Password tidak cocok";
-
-		header('Location:index.php?error='.$error.'');
-		exit;
-
+			$_SESSION["loginadmin"] = $r['username'];
+			$_SESSION["loginadminid"] = $r['ID'];
+			$_SESSION["loginadminemail"] = $r['email'];
+			$_SESSION["loginadminnama"] = $r['Nama'];
+		}
+	} else {
+		$error = "Use dan Password tidak cocok";
 	}
 
 
+	// $numrow	= mysqli_num_rows($result);
+
+	// $r = mysqli_fetch_array($result);
+
+
+	// if($numrow > 0)
+	// {
+		
+	// 	$_SESSION["loginadmin"] = $r['username'];
+	// 	$_SESSION["loginadminid"] = $r['ID'];
+	// 	$_SESSION["loginadminemail"] = $r['email'];
+	// 	$_SESSION["loginadminnama"] = $r['Nama'];
+
+	// }else{
+
+	// 	$error =  "User dan Password tidak cocok";
+
+	// 	header('Location:index.php?error='.$error.'');
+	// 	exit;
+
+	// }
 
 }
 

@@ -3,9 +3,9 @@ if (isset($_POST['tambahuser'])) {
 
 	global $connect;
 	
-	$username = mysqli_real_escape_string($connect,$_POST['username']);
+	$username = strtolower(stripslashes(mysqli_real_escape_string($connect,$_POST['username'])));
 	$password = mysqli_real_escape_string($connect,$_POST['password']);
-
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
 	$sql = mysqli_query($connect, "SELECT * FROM administrator WHERE username='".$username."' OR email ='".$_POST['email']."' ");
 	$hasil = mysqli_num_rows($sql);
@@ -34,40 +34,45 @@ if (isset($_POST['edituser'])) {
 
 	}
 
+if(isset($_GET['act'])){
+    if ($_GET['act'] && $_GET['act']=='edit') {
+    
+        $id = (int)$_GET['id'];
+        
+        $sql = mysqli_query($connect,"SELECT * FROM administrator WHERE ID = '$id' ");
+    
+    
+    
+            $b = mysqli_fetch_assoc($sql);
+        
+    
+        
+    
+    }
 
-if ($_GET['act'] && $_GET['act']=='edit') {
-
-	$id = (int)$_GET['id'];
-	
-	$sql = mysqli_query($connect,"SELECT * FROM administrator WHERE ID = '$id' ");
-
-
-
-		$b = mysqli_fetch_assoc($sql);
-	
-
-	
-
+    if ($_GET['act'] && $_GET['act']=='hapus') {
+    
+        $id = (int)$_GET['id'];
+        
+        $sql = mysqli_query($connect,"DELETE FROM administrator WHERE ID = '$id' ");
+    
+    
+        $error = "Data user admin berhasil dihapus";
+    
+    }
 }
 
-if ($_GET['act'] && $_GET['act']=='hapus') {
-
-	$id = (int)$_GET['id'];
-	
-	$sql = mysqli_query($connect,"DELETE FROM administrator WHERE ID = '$id' ");
-
-
-	$error = "Data user admin berhasil dihapus";
-
+if(isset($error)){
+    echo $error;
 }
 
-
-echo $error;
 ?>
 
 <br>
 <form action="./?mod=useradmin" method="POST">
-
+<?php
+    if(isset($b)){
+?>
 	<input type="hidden" name="userid" value="<?=$b['ID']?>">
 	<fieldset>
 		<legend>Tambah user</legend>
@@ -95,6 +100,41 @@ echo $error;
 	<input type="submit" name="<?=($b['ID']? 'edituser' : 'tambahuser')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
 
 	</fieldset>
+
+<?php
+    } else {
+?>
+    <input type="hidden" name="userid">
+	<fieldset>
+		<legend>Tambah user</legend>
+
+	<div class="formnama">
+		<label>Nama User</label><br>
+		<input type="text" name="nama" placeholder="Nama Lengkap">
+	</div>
+
+	<div class="formnama">
+		<label>Username</label><br>
+		<input type="text" name="username" placeholder="Username">
+	</div>
+
+	<div class="formnama">
+		<label>Password</label><br>
+		<input type="password" name="password">
+	</div>
+
+	<div class="formnama">
+		<label>Email</label><br>
+		<input type="text" name="email" placeholder="Email address">
+	</div>
+
+	<input type="submit" name="tambahuser" placeholder="Registrasi">
+
+	</fieldset>
+<?php 
+    }
+?>
+
 </form>
 
 <fieldset>

@@ -4,9 +4,7 @@ include("ceklogin.php");
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Administrator - <?=getprofilweb('site_title')?></title>
-	<meta name="description" content="<?=getprofilweb('meta_desc')?>">
-	<meta name="keywords" content="<?=getprofilweb('meta_key')?>">
+	<title>Administrator</title>
 	<link rel="stylesheet" type="text/css" href="../assets/style.css">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -37,6 +35,7 @@ include("ceklogin.php");
 			<a href="./">Home</a>
 			<a href="?mod=kategori">Kategori</a>
 			<a href="?mod=berita">Berita</a>
+			<a href="?mod=useradmin">Admin</a>
 
 			<span class="fr"><a href="?keluar=yes">Log Out</a></span>
 
