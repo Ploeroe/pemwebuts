@@ -29,37 +29,35 @@ if (isset($_POST["submit"])) {
 
 	global $connect;
 
-	if ($_SESSION["code"] != $_POST["captcha"]) {
-        echo "Kode CAPTCHA anda salah";
-		$error = "Captcha anda salah";
-		header("Location: http://localhost/pemwebuts/portalberita/admin/index.php");
-		die;
-    } 
+	if ($_POST["captcha"] != $_SESSION["code"]) {
+		$error = true;
+		
+    } else {
 
-	$username = mysqli_real_escape_string($connect, $_POST['username']);
-	$password = mysqli_real_escape_string($connect, $_POST['password']);
+		$username = mysqli_real_escape_string($connect, $_POST['username']);
+		$password = mysqli_real_escape_string($connect, $_POST['password']);
 
-	$result = mysqli_query($connect, "SELECT * FROM administrator WHERE username = '$username'");
+		$result = mysqli_query($connect, "SELECT * FROM administrator WHERE username = '$username'");
 
-	if (mysqli_num_rows($result) === 1) {
-		$row = mysqli_fetch_assoc($result);
-		if (password_verify($password, $row['password'])) {
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+			if (password_verify($password, $row['password'])) {
 
-			$resultverified = mysqli_query($connect, "SELECT * FROM administrator WHERE username = '$username'");
+				$resultverified = mysqli_query($connect, "SELECT * FROM administrator WHERE username = '$username'");
 
-			$r = mysqli_fetch_array($resultverified);
+				$r = mysqli_fetch_array($resultverified);
 
-			$_SESSION["loginadmin"] = $r['username'];
-			$_SESSION["loginadminid"] = $r['ID'];
-			$_SESSION["loginadminemail"] = $r['email'];
-			$_SESSION["loginadminnama"] = $r['Nama'];
+				$_SESSION["loginadmin"] = $r['username'];
+				$_SESSION["loginadminid"] = $r['ID'];
+				$_SESSION["loginadminemail"] = $r['email'];
+				$_SESSION["loginadminnama"] = $r['Nama'];
+			} else {
+				$error = true;
+			}
 		} else {
-			$error = "Use dan Password tidak cocok";
+			$error = true;
 		}
-	} else {
-		$error = "Use dan Password tidak cocok";
 	}
-
 }
 
 if (empty($_SESSION["loginadmin"])) {
@@ -106,7 +104,7 @@ if (empty($_SESSION["loginadmin"])) {
 			</form>
 
 			<?php if (isset($error)) : ?>
-				<p style="color: red; font-style:italic;">Username / password salah</p>
+				<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
 			<?php endif; ?>
 
 		</div>
