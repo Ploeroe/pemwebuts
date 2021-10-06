@@ -1,27 +1,41 @@
 <?php
 session_start();
-header('Content-type: image/png');
+function acakCaptcha()
+{
+  $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
 
-// mengacak huruf dan angka
-$chart = str_shuffle('0123456789abcdefghijklmnopqrstuvwxyz');
+  //untuk menyatakan $pass sebagai array
+  $pass = array();
 
-// ambil 5 karakter dari chart yang di acak
-$captcha = substr($chart, 0, 5);
+  //masukkan -2 dalam string length
+  $panjangAlpha = strlen($alphabet) - 2;
+  for ($i = 0; $i < 5; $i++) {
+    $n = rand(0, $panjangAlpha);
+    $pass[] = $alphabet[$n];
+  }
 
-// simpan captcha di dalam session
-$_SESSION['captcha'] = $captcha;
+  //ubah array menjadi string
+  return implode($pass);
+}
 
-// membuat gambar
-// imagecreate(P, L)
-// P : panjang, L : tinggi
-$image = imagecreate(65, 30);
+// untuk mengacak captcha
+$code = acakCaptcha();
+$_SESSION["code"] = $code;
 
-// membuat background dan text
-// imagecolorallocate(image, red, green, blue);
-$background = imagecolorallocate($image, 2, 89, 47);
-$text = imagecolorallocate($image, 255, 255, 255);
+//lebar dan tinggi captcha
+$wh = imagecreatetruecolor(173, 50);
 
-imagefilledrectangle($image, 0, 0, 65, 30, $background);
-imagestring($image, 20, 10, 7, $captcha, $text);
-imagejpeg($image);
-imagedestroy($image);
+//background color biru
+$bgc = imagecolorallocate($wh, 22, 86, 165);
+
+//text color abu-abu
+$fc = imagecolorallocate($wh, 223, 230, 233);
+imagefill($wh, 0, 0, $bgc);
+
+//( $image , $fontsize , $string , $fontcolor )
+imagestring($wh, 10, 50, 15,  $code, $fc);
+
+//buat gambar
+header('content-type: image/jpg');
+imagejpeg($wh);
+imagedestroy($wh);
