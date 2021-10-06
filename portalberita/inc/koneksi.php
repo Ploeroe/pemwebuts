@@ -1,6 +1,6 @@
 <?php 
 
-define('URL_SITUS', 'http://localhost/Pemweb/Testing%20Pemweb/portalberita/');
+define('URL_SITUS', 'http://localhost/pemwebuts/portalberita/');
 define('PATH_LOGO', 'image');
 define('PATH_GAMBAR', 'photo');
 define('FILE_LOGO', 'logo.png');
