@@ -40,7 +40,10 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`ID`, `Nama`, `username`, `password`, `email`) VALUES
-(1, 'Administrator', 'admin', '1234', 'arie.vcr@gmail.com');
+(6, 'Administrator', 'admin', '$2y$10$ulZ4Bm8N1KB/hqACeth.xecs.isDVsesCUoFiuufyL0F4JtfJ0vnu', 'admin@admin.com'),
+(5, 'Nehemia Gueldi', 'nehemia', '$2y$10$8jwjre/EiJQo53k.FWDNh.Ce/7GlBavKPg8qJhrBDrp6OFghsyYx2', 'nehemia@nehemia.com'),
+(7, 'Joanne Kessie Kaspia', 'joanne', '$2y$10$iGbSX9KK4D0ISf37db7XAeX3R9670ryCQE7nckovx9W7H4f.d3TV2', 'joanne@joanne.com'),
+(8, 'Raphael Gregorius Hakim', 'raphael', '$2y$10$LwN1o4sHrpsZIrNofx0xzuw8XNiCCy7qkwWTtDDPwaIIDin0/BVXa', 'raphael@raphael.com');
 
 -- --------------------------------------------------------
 
