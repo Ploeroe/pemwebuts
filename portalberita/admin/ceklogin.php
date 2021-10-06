@@ -29,6 +29,13 @@ if (isset($_POST["submit"])) {
 
 	global $connect;
 
+	if ($_SESSION["code"] != $_POST["captcha"]) {
+        echo "Kode CAPTCHA anda salah";
+		$error = "Captcha anda salah";
+		header("Location: http://localhost/pemwebuts/portalberita/admin/index.php");
+		die;
+    } 
+
 	$username = mysqli_real_escape_string($connect, $_POST['username']);
 	$password = mysqli_real_escape_string($connect, $_POST['password']);
 
@@ -52,6 +59,7 @@ if (isset($_POST["submit"])) {
 	} else {
 		$error = "Use dan Password tidak cocok";
 	}
+
 }
 
 if (empty($_SESSION["loginadmin"])) {
