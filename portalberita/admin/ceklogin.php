@@ -3,12 +3,18 @@ include_once('../inc/fungsi.php');
 
 session_start();
 
-function debug_to_console($data) {
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
+// fitur debug yang dapat kita panggil
+// contoh : debug_to_console($data);
+function debug_to_console($data, $context = 'Debug in Console') {
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    // Buffering to solve problems frameworks, like header() in this and not a solid return.
+    ob_start();
+
+    $output  = 'console.info(\'' . $context . ':\');';
+    $output .= 'console.log(' . json_encode($data) . ');';
+    $output  = sprintf('<script>%s</script>', $output);
+
+    echo $output;
 }
 
 if(isset($_GET["keluar"]) && $_GET["keluar"]=='yes'){
@@ -30,40 +36,22 @@ if (isset($_POST["submit"] ) ) {
 	if(mysqli_num_rows($result) === 1){
 		$row = mysqli_fetch_assoc($result);
 		if(password_verify($password,$row['password'])){
-			$numrow = mysqli_num_rows($result);
-			$r = mysqli_fetch_array($result);
+
+			$resultverified = mysqli_query($connect, "SELECT * FROM administrator WHERE username = '$username'");
+
+			$r = mysqli_fetch_array($resultverified);
 
 			$_SESSION["loginadmin"] = $r['username'];
 			$_SESSION["loginadminid"] = $r['ID'];
 			$_SESSION["loginadminemail"] = $r['email'];
 			$_SESSION["loginadminnama"] = $r['Nama'];
+			
+		} else {
+			$error = "Use dan Password tidak cocok";
 		}
 	} else {
 		$error = "Use dan Password tidak cocok";
 	}
-
-
-	// $numrow	= mysqli_num_rows($result);
-
-	// $r = mysqli_fetch_array($result);
-
-
-	// if($numrow > 0)
-	// {
-		
-	// 	$_SESSION["loginadmin"] = $r['username'];
-	// 	$_SESSION["loginadminid"] = $r['ID'];
-	// 	$_SESSION["loginadminemail"] = $r['email'];
-	// 	$_SESSION["loginadminnama"] = $r['Nama'];
-
-	// }else{
-
-	// 	$error =  "User dan Password tidak cocok";
-
-	// 	header('Location:index.php?error='.$error.'');
-	// 	exit;
-
-	// }
 
 }
 
@@ -97,12 +85,16 @@ if(empty($_SESSION["loginadmin"]))
 
 		<div class="user">
 			<label>Password</label><br>
-			<input type="password" name="password" class="form100">
+			<input type="password" name="password" placeholder="Password" class="form100">
 		</div>
 
 		<input type="submit" name="submit" value="Login">
 
 	</form>
+
+	<?php if (isset($error)) : ?>
+    <p style="color: red; font-style:italic;">Username / password salah</p>
+  	<?php endif; ?>
 
 </div>
 
