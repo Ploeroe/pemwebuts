@@ -96,7 +96,7 @@ if(isset($error)){
 				<input class="kotakinput" type="text" name="email" placeholder="Email address" value="<?=$b['email']?>">
 			</div>
 
-			<input type="submit" name="<?=($b['ID']? 'edituser' : 'tambahuser')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
+			<input type="submit" class="btntambah" name="<?=($b['ID']? 'edituser' : 'tambahuser')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
 	</fieldset>
 
 <?php
