@@ -26,14 +26,14 @@ include("ceklogin.php");
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
 	<div class="container">
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			<a class="navbar-brand" href="#">
             	<img src="../image/News.png" alt="" width="30" height="30">
           	</a>
 			<li class="nav-item">
-				<a class="nav-link active" aria-current="page" href="./">Home</a>
+				<a class="nav-link" aria-current="page" href="./">Home</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="?mod=kategori">Kategori</a>
@@ -50,7 +50,8 @@ include("ceklogin.php");
 </nav>
 
 <div class="container">
-	<div class="title">
+	<div class="title mx-auto">
+		<img src="../image/title.png" class="imgtitle">
 		<h1>Administrator Page</h1>
 	</div> <hr>
 	<div class="subtitle">
@@ -98,7 +99,19 @@ include("ceklogin.php");
 		</div>
 	</div> -->
 </div>
+<script>
+			window.onscroll = function () {
+			scrollFunction()
+			};
 
+			function scrollFunction() {
+			if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+				document.getElementById("nav").style.padding = "0px";
+			} else {
+				document.getElementById("nav").style.padding = "5px";
+			}
+			}
+  		</script>
 
 </body>
 </html>

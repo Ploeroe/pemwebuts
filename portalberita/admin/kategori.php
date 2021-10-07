@@ -54,7 +54,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 		<input type="hidden" name="ID" value="<?=(isset($ID) ? $ID : '');?>">
 
 		<fieldset class="formkategori mx-auto">
-			<legend class="subtitle">Tambah Kategori</legend>
+			<h3 class="titleform">Tambah Kategori</h3>
 		<div class="inputkategori">
 			<div class="formnama">Kategori : <br>
 				<input type="text" name="kategori" placeholder="Nama Kategori" value="<?=(isset($kategori) ? $kategori : '');?>" class="kotakinput">
@@ -79,7 +79,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 
 <div class="w100">
 		<fieldset class="listkategori mx-auto mt-5">
-			<legend class="subtitle">List Kategori</legend>
+			<legend class="titleform">List Kategori</legend>
 
 			<table class="table table-success table-hover">
 				<thead>
@@ -95,7 +95,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 
 			global $connect;
 
-			$sql = mysqli_query($connect,"SELECT * FROM kategori ORDER BY ID ASC");
+			$sql = mysqli_query($connect,"SELECT * FROM kategori ORDER BY ID DESC");
 			while($r = mysqli_fetch_array($sql))
 			{
 				extract($r);

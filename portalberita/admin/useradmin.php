@@ -74,61 +74,59 @@ if(isset($error)){
     if(isset($b)){
 ?>
 	<input type="hidden" name="userid" value="<?=$b['ID']?>">
-	<fieldset>
-		<legend>Tambah user</legend>
+	<fieldset  class="berita mx-auto p-3">
+		<h3 class="titleform">Tambah user</h3>
+			<div class="inputadmin">
+				<label>Nama User</label><br>
+				<input class="kotakinput" type="text" name="nama" placeholder="Nama Lengkap" value="<?=$b['Nama']?>">
+			</div>
 
-	<div class="formnama">
-		<label>Nama User</label><br>
-		<input type="text" name="nama" placeholder="Nama Lengkap" value="<?=$b['Nama']?>">
-	</div>
+			<div class="inputadmin">
+				<label>Username</label><br>
+				<input class="kotakinput" type="text" name="username" placeholder="Username" value="<?=$b['username']?>">
+			</div>
 
-	<div class="formnama">
-		<label>Username</label><br>
-		<input type="text" name="username" placeholder="Username" value="<?=$b['username']?>">
-	</div>
+			<div class="inputadmin">
+				<label>Password</label><br>
+				<input class="kotakinput" type="password" name="password">
+			</div>
 
-	<div class="formnama">
-		<label>Password</label><br>
-		<input type="password" name="password">
-	</div>
+			<div class="inputadmin">
+				<label>Email</label><br>
+				<input class="kotakinput" type="text" name="email" placeholder="Email address" value="<?=$b['email']?>">
+			</div>
 
-	<div class="formnama">
-		<label>Email</label><br>
-		<input type="text" name="email" placeholder="Email address" value="<?=$b['email']?>">
-	</div>
-
-	<input type="submit" name="<?=($b['ID']? 'edituser' : 'tambahuser')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
-
+			<input type="submit" name="<?=($b['ID']? 'edituser' : 'tambahuser')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
 	</fieldset>
 
 <?php
     } else {
 ?>
     <input type="hidden" name="userid">
-	<fieldset>
-		<legend>Tambah user</legend>
+	<fieldset  class="berita mx-auto p-3">
+		<h3 class="titleform">Tambah user</h3>
 
-	<div class="formnama">
+	<div class="inputadmin">
 		<label>Nama User</label><br>
-		<input type="text" name="nama" placeholder="Nama Lengkap">
+		<input class="kotakinput" type="text" name="nama" placeholder="Nama Lengkap">
 	</div>
 
-	<div class="formnama">
+	<div class="inputadmin">
 		<label>Username</label><br>
-		<input type="text" name="username" placeholder="Username">
+		<input class="kotakinput" type="text" name="username" placeholder="Username">
 	</div>
 
-	<div class="formnama">
+	<div class="inputadmin">
 		<label>Password</label><br>
-		<input type="password" name="password">
+		<input class="kotakinput" type="password" name="password">
 	</div>
 
-	<div class="formnama">
+	<div class="inputadmin">
 		<label>Email</label><br>
-		<input type="text" name="email" placeholder="Email address">
+		<input class="kotakinput" type="text" name="email" placeholder="Email address">
 	</div>
 
-	<input type="submit" name="tambahuser" placeholder="Registrasi">
+	<input class="btntambah" type="submit" name="tambahuser" placeholder="Registrasi">
 
 	</fieldset>
 <?php 
@@ -137,18 +135,19 @@ if(isset($error)){
 
 </form>
 
-<fieldset>
-	<legend>List user</legend>
+<fieldset class="berita mx-auto py-3 px-5 mt-5">
+	<h3 class="titleform">List user</h3>
 
-	<div class="w100 ">
-		<hr>
-		<div class="w10 bold fl">No.</div>
-		<div class="w30 bold fl">Username</div>
-		<div class="w20 bold fl">Nama</div>
-		<div class="w20 bold fl">Email</div>
-		<div class="w20 bold fl">Aksi</div>
-		<div class="clear"></div>
-		<hr>
+	<table class="table table-success table-hover">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>Username</th>
+				<th>Nama</th>
+				<th>Email</th>
+				<th>Aksi</th>
+			</tr>	
+		<thead>
 		
 		<?php 
 		$i= 1;
@@ -158,15 +157,17 @@ if(isset($error)){
 			extract($r);
 
 			echo'
-			<div class="list">
-			<div class="w10 fl">'.$i++.'</div>
-			<div class="w30 fl">'.$username.'</div>
-			<div class="w20 fl">'.$Nama.'</div>
-			<div class="w20 fl">'.$email.'</div>
-			<div class="w20 fl">
-			<a href="?mod=useradmin&act=edit&id='.$ID.'" class="small btn btn-primary">Edit</a> <a href="?mod=useradmin&act=hapus&id='.$ID.'" class="small btn btn-red">Hapus</a></div>
-			<div class="clear"></div>
-			</div>
+			<tbody>
+				<tr>
+					<td>'.$i++.'</td>
+					<td>'.$username.'</td>
+					<td>'.$Nama.'</td>
+					<td>'.$email.'</td>
+					<td>
+						<a href="?mod=useradmin&act=edit&id='.$ID.'" class="btnedit">Edit</a> <a href="?mod=useradmin&act=hapus&id='.$ID.'" class="btndelete">Hapus</a>
+					</td>
+				</tr>
+			</tbody>
 
 
 
@@ -179,6 +180,6 @@ if(isset($error)){
 
 		 ?>
 
-	</div>
+	</table>
 
 </fieldset>

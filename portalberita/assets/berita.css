@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "Lemon";
+    src: url("./font/lemonmilk.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Louis";
+    src: url("./font/louis.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #c4eef1;
+    background-image: url(../image/kotak.png);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    text-align: center;
+}
+
+#nav {
+    font-family: "Lemon";
+    opacity: 0.8;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.btnlogout a {
+    background: #07949e;
+    border-radius: 50px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+    float: right;
+    padding: 6px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: white;
+    font-family: "Lemon";
+    border: none;
+}
+
+.btnlogout a:hover {
+    transform: translateY(-3px);
+    transition: 0.5s ease-in-out;
+    color: white;
+}
+
+.imgtitle {
+    max-width: 500px;
+}
+
+.title {
+    font-family: "Lemon";
+    color: white;
+    -webkit-text-stroke: 1px #07949e;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 2%;
+}

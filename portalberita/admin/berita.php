@@ -129,17 +129,17 @@ if(isset($_GET['act']) && $_GET['act']=='hapus'){
 	<form action="./?mod=berita" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="<?=(isset($id) ? $id : '')?>">
 		<input type="hidden" name="aksi" value="<?=(isset($id) ? 'edit' : 'tambah');?>">
-		<fieldset>
-			<legend>Tambah Berita</legend>
-
-			<div class="formnama">
+		<fieldset class="berita mx-auto py-4">
+			<h3 class="titleform">Tambah Berita</h3>
+		
+			<div class="formberita">
 			<label>Judul</label>:<br>
-			<input type="text" name="judul" placeholder="Judul berita" value="<?=(isset($judul) ? $judul : '')?>" size="40">
+			<input type="text" name="judul" placeholder="Judul berita" value="<?=(isset($judul) ? $judul : '')?>" size="40" class="inputberita" >
 			</div>
 
-			<div class="formnama">
+			<div class="formberita">
 			<label>Kategori</label>:<br>
-			<select name="kategori">
+			<select name="kategori" class="kotakpilihan">
 				<option>Pilih kategori</option>
 				<?php 
 				global $connect;
@@ -155,13 +155,13 @@ if(isset($_GET['act']) && $_GET['act']=='hapus'){
 			</select>
 			</div>
 
-			<div class="formnama">
+			<div class="formberita">
 			<label>Isi berita</label>:<br>
 			<textarea name="isi" cols="80" rows="8" class="summernote"><?=(isset($isi) ? $isi : '')?></textarea>
 
 			</div>
 
-			<div class="formnama">
+			<div class="formberita">
 			<label>Gambar</label>:<br>
 			<?php 
 			if(!empty($gambar) && !empty($id) ){
@@ -176,7 +176,7 @@ if(isset($_GET['act']) && $_GET['act']=='hapus'){
 			}else
 			{
 
-				echo'<input type="file" name="gambar">';
+				echo'<input type="file" name="gambar" class="btnberita">';
 			}
 
 			 ?>
@@ -184,20 +184,20 @@ if(isset($_GET['act']) && $_GET['act']=='hapus'){
 			</div>
 			<div class="clear pd10"></div>
 
-			<div class="formnama">
+			<div class="formberita">
 			<label>Teks</label>:<br>
-			<textarea name="teks" cols="30" rows="5"><?=(isset($teks) ? $teks : '')?></textarea>
+			<textarea class="inputberita"name="teks" cols="30" rows="5"><?=(isset($teks) ? $teks : '')?></textarea>
 			</div>
 
-			<div class="formnama">
+			<div class="formberita">
 			<label>Terbitkan</label>:<br>
-				<select name="terbit">
+				<select name="terbit" class="kotakpilihan">
 					<option value="1" <?=((isset($terbit) && $terbit==1) ? 'selected' :'')?>>Yes</option>
 					<option value="0" <?=((isset($terbit) && $terbit==0) ? 'selected' :'')?>>No</option>
 				</select>
 			</div>
 
-			<input type="submit" name="add" value="<?=(isset($id) ? 'Edit' :'Tambah')?>" class="btn-primary">
+			<input class="btntambah"type="submit" name="add" value="<?=(isset($id) ? 'Edit' :'Tambah')?>" class="btn-primary">
 
 		</fieldset>
 		
@@ -208,16 +208,19 @@ if(isset($_GET['act']) && $_GET['act']=='hapus'){
 <div class="clear"></div>
 
 <div class="w100">
-	<fieldset>
-		<legend>List Berita</legend>
+	<fieldset class="listkategori mx-auto mt-5">
+		<h3 class="titleform">List Berita</h3>
 
-		<div class="w100 list fl bold bg_dark">
-			<div class="w10 fl">ID</div>
-			<div class="w40 fl">Judul</div>
-			<div class="w20 fl">Kategori</div>
-			<div class="w20 fl">Tanggal</div>
-			<div class="w10 fl">Aksi</div>
-		</div>
+		<table class="table table-success table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Judul</th>
+					<th>Kategori</th>
+					<th>Tanggal</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
 
 		<?php 
 		global $connect;
@@ -226,21 +229,20 @@ if(isset($_GET['act']) && $_GET['act']=='hapus'){
 		while ($b = mysqli_fetch_array($hasil)) {
 			extract($b);
 			?>
-
-			<div class="w100 list fl">
-			<div class="w10 fl"><?=$ID;?></div>
-			<div class="w40 fl"><?=$Judul;?></div>
-			<div class="w20 fl"><?=$Kategori;?></div>
-			<div class="w20 fl"><?=$Tanggal;?></div>
-			<div class="w10 fl">
-				<a href="./?mod=berita&act=edit&id=<?=$ID;?>" class="btn-primary pd5">edit</a>
-				<a href="./?mod=berita&act=hapus&id=<?=$ID;?>" class="btn-red pd5">hapus</a>
-
-			</div>
-		</div>
-		<?php
-		}
-	?>
+			<tbody>
+				<tr>
+					<td><?=$ID;?></td>
+					<td><?=$Judul;?></td>
+					<td><?=$Kategori;?></td>
+					<td><?=$Tanggal;?></td>
+					<td>
+						<a href="./?mod=berita&act=edit&id=<?=$ID;?>" class="btnedit">edit</a><a href="./?mod=berita&act=hapus&id=<?=$ID;?>" class="btndelete">hapus</a>
+					</td>
+				</tr>
+			</tbody>
+			<?php
+			}
+		?>
 
 	</fieldset>
 </div>

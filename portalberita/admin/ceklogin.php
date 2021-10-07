@@ -69,48 +69,71 @@ if (empty($_SESSION["loginadmin"])) {
 
 	<head>
 		<title>Login Page</title>
-		<link rel="stylesheet" type="text/css" href="../assets/style.css">
+		<link rel="stylesheet" type="text/css" href="../assets/login.css">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+
 	</head>
 
 	<body>
-
-		<div class="w20 fn loginpage">
-			<div class="logo">
-
-				<img src="<?= URL_SITUS . PATH_LOGO . '/' . FILE_LOGO; ?>">
-
-			</div>
-
-			<div class="clear pd5"></div>
-
-			<form action="" method="POST">
-				<div class="user">
-					<label>Username</label><br>
-					<input type="text" name="username" placeholder="Username" class="form100">
-				</div>
-
-				<div class="user">
-					<label>Password</label><br>
-					<input type="password" name="password" placeholder="Password" class="form100">
-				</div>
-
-				<div class="user">
-					<label>Captcha</label>
-					<img src="captcha.php" alt="gambar">
-					<input type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)">
-				</div>
-				<input type="submit" name="submit" value="Login">
-
-			</form>
-
-			<?php if (isset($error)) : ?>
-				<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
-			<?php endif; ?>
-
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
+		<div class="container">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<a class="navbar-brand" href="#">
+					<img src="../image/News.png" alt="" width="30" height="30">
+				</a>
+			</ul>
+			<!-- <span class="btnlogout"><a href="#">Sign Up</a></span> -->
 		</div>
+	</nav>
 
+	<div class="main">
+		<div class="container">
+			<div class="title">
+				<img src="../image/title.png" class="imgtitle">
+			</div>
+			<div class="box mx-auto mb-5">
+				<form action="" method="POST">
+					<h1 class="title pb-3">Login</h1>
+					<div class="user">
+						<label>Username</label><br>
+						<input id="username" type="text" name="username" placeholder="Username" class="kotakinput">
+					</div> <br>
+
+					<div class="user">
+						<label>Password</label><br>
+						<input id="password" type="password" name="password" placeholder="Password" class="kotakinput">
+					</div> <br>
+
+					<div class="user">
+						<label>Captcha</label> <br>
+						<img src="captcha.php" alt="gambar" class="mt-3">
+						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
+					</div>
+					<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
+				</form>
+
+				<?php if (isset($error)) : ?>
+					<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
+				<?php endif; ?>
+				</div>
+			</div>
+		</div>
+		<script>
+			window.onscroll = function () {
+			scrollFunction()
+			};
+
+			function scrollFunction() {
+			if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+				document.getElementById("nav").style.padding = "0px";
+			} else {
+				document.getElementById("nav").style.padding = "5px";
+			}
+			}
+  		</script>
 	</body>
-
 	</html>
 <?php
 	exit;

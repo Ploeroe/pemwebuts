@@ -12,6 +12,10 @@
     font-style: normal;
 }
 
+hr{
+    border: 10px dotted white;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -27,9 +31,11 @@ body {
     text-align: center;
 }
 
-nav {
+#nav {
     font-family: "Lemon";
     opacity: 0.8;
+    padding: 5px;
+    transition: 0.5s;
 }
 
 .btnlogout a {
@@ -37,13 +43,13 @@ nav {
     border-radius: 50px;
     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
     float: right;
-    padding: 10px 15px;
-    margin-top: 12px;
+    padding: 6px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-decoration: none;
     color: white;
     font-family: "Lemon";
     border: none;
-
 }
 
 .btnlogout a:hover {
@@ -52,15 +58,20 @@ nav {
     color: white;
 }
 
-.title h1 {
+.title {
     font-family: "Lemon";
     color: white;
     -webkit-text-stroke: 1px #07949e;
     text-align: center;
-    font-size: 5rem;
+    font-size: 1.8rem;
+    margin-top: 2%;
 }
 
 /* Menu Home */
+
+.imgtitle{
+    max-width: 500px;
+}
 
 .subtitle {
     font-family: "Louis";
@@ -75,14 +86,10 @@ nav {
 }
 
 .box {
-    border: white 2px solid;
     background-color: white;
     border-radius: 20px;
-    width: 100%;
-    height: 200px;
     text-align: center;
     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 15%;
 }
 
 .box a {
@@ -112,11 +119,16 @@ nav {
 
 /* kategori */
 
+.titleform{
+    font-family: "Lemon";
+}
 .formkategori {
     background-color: white;
     border-radius: 30px;
     width: 70%;
     box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25);
+    padding-top: 2%;
+    padding-bottom: 2%;
 
 }
 
@@ -158,10 +170,6 @@ nav {
     color: white;
 }
 
-.clear {
-	clear: both;
-}
-
 .listkategori{
     background-color: white;
     border-radius: 30px;
@@ -183,7 +191,7 @@ tbody{
     border-radius: 50px;
     box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25);
     float: center;
-    padding: 5px 15px;
+    padding: 5px 23px;
     text-decoration: none;
     color: white;
     font-family: "Lemon";
@@ -218,5 +226,64 @@ tbody{
     transition: 0.5s ease-in-out;
     background-color: white;
     color: #07949e;
-
 }
+
+/* Berita */
+
+.berita{
+    background-color: white;
+    border-radius: 30px;
+    width: 70%;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25); 
+    /* margin: auto; */
+}
+
+.inputberita{
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.formberita{
+    text-align: left;
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: 1.5rem;
+}
+
+.btnberita{
+    font-size: 1.5rem;
+}
+
+.btntambah{
+    background: #07949e;
+    border-radius: 50px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25);
+    float: left;
+    padding: 5px 15px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: white;
+    font-family: "Lemon";
+    font-size: 1rem;
+    border: none;
+    margin-left: 8%;
+}
+
+.btntambah:hover {
+    transform: translateY(-3px);
+    transition: 0.5s ease-in-out;
+    color: white;
+}
+
+/* User Admin */
+
+.inputadmin{
+    text-align: left;
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: 1.5rem;
+}
+
+/* Login Page */
+
