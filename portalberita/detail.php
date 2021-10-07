@@ -16,16 +16,15 @@
 		
 		echo'
 		<div class="detail">
-			<h1>'.$Judul.'</h1>
+			<h5 class="kategoriberita">'.$Kategori.'</h5>
+			<h2 class="judulberita">'.$Judul.'</h2>
 
-			<div class="info">
+			<div class="info mb-5">
 				<span> Tanggal: '.$Tanggal.' </span> | <span> Update by: '.$Updateby.' </span>
 			</div>
 			 <div class="img">
 			 	<img src="'.URL_SITUS.$Gambar.'">
-
 			 	<div class="teks-foto">'.$Teks.'</div>
-
 			 </div>
 			 
 			 <p>'.nl2br($Isi).'</p>

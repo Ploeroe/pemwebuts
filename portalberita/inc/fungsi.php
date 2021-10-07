@@ -16,11 +16,8 @@ function populer()
 {
 	?>
 	<!--berita populer-->
-		<div class="bar-menu">
-			Berita Populer
-		</div>
-
-		<div>
+	<h1 class="todaynews">Top News</h1>
+		<div class="populer">
 			<?php 
 			global $connect;
 
@@ -55,11 +52,8 @@ function beritaterbaru()
 {
 	?>
 	<!--berita terkini-->
-		<div class="bar-menu">
-			Berita Terbaru
-		</div>
-
-		<div>
+	<h1 class="todaynews">New News</h1>
+		<div class="populer">
 			<?php 
 			global $connect;
 

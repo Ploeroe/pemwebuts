@@ -3,13 +3,11 @@
 </div>
 
 <footer>
-	<div class="wrap">
-		<div class="pd10">
-			<div class="footer pd10">
-				Copyright &copy; 2019 | gercepnews.xyz
+		<div class="container bg-white">
+			<div class="py-3 my-5 text-center">
+				Copyright &copy; 2019 | gercepnews.my.id
 			</div>
 		</div>
-	</div>
 </footer>
 
 </body>

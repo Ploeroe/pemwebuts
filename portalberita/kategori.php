@@ -17,13 +17,18 @@
 			
 			echo'
 			<div class="boxnews">
-				 <div class="img">
-				 	<img src="'.URL_SITUS.$Gambar.'">
-				 </div>
-				 <h1><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
-				 <p>'.substr(strip_tags($Isi),0,200).'</p>
-				 <div class="clear"></div>
+			<div class="img">
+				<img src="'.URL_SITUS.$Gambar.'">
 			</div>
+			<div class="text">
+			   <h1 class="titleberita"><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
+			   <p>'.substr(strip_tags($Isi),0,200).'</p>
+			</div>
+			<button class="btnread">
+			   <a href="./?open=detail&id='.$ID.'">Read more</a>
+		   </button>
+			<div class="clear"></div>
+	   </div>
 
 			';
 
