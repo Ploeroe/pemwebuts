@@ -1,6 +1,7 @@
 <div class="mainpage">
 
 	<div class="content">
+		<h1 class="todaynews">Today News</h1>
 		<?php 
 		global $connect;
 
@@ -11,10 +12,17 @@
 		echo'
 		<div class="boxnews">
 			 <div class="img">
+			 <a href="./?open=detail&id='.$ID.'">
 			 	<img src="'.URL_SITUS.$Gambar.'">
+				 </a>
 			 </div>
-			 <h1><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
-			 <p>'.substr(strip_tags($Isi),0,200).'</p>
+			 <div class="text">
+				<h1 class="titleberita"><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
+				<p>'.substr(strip_tags($Isi),0,200).'</p>
+			 </div>
+			 <button class="btnread">
+				<a href="./?open=detail&id='.$ID.'">Read more</a>
+			</button>
 			 <div class="clear"></div>
 		</div>
 
@@ -25,10 +33,11 @@
 
 		
 	</div>
-
 	<div class="sidebar">
-		
-		<?=populer()?>
+
+		<?php 
+		include 'sidebar.php';
+		 ?>
 		
 	</div>
 

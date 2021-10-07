@@ -1,5 +1,5 @@
 <?=beritaterbaru(); ?>
 
-<div class="clear">Space</div>
+<div class="clear"></div>
 
 <?=populer()?>
