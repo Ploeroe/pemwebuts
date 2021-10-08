@@ -1,5 +1,5 @@
 <?php 
-if (isset($_POST['tambahuser'])) {
+if (isset($_POST['tambahadmin'])) {
 
 	global $connect;
 	
@@ -96,7 +96,7 @@ if(isset($error)){
 				<input class="kotakinput" type="text" name="email" placeholder="Email address" value="<?=$b['email']?>">
 			</div>
 
-			<input type="submit" class="btntambah" name="<?=($b['ID']? 'edituser' : 'tambahuser')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
+			<input type="submit" class="btntambah" name="<?=($b['ID']? 'edituser' : 'tambahadmin')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
 	</fieldset>
 
 <?php
@@ -126,7 +126,7 @@ if(isset($error)){
 		<input class="kotakinput" type="text" name="email" placeholder="Email address">
 	</div>
 
-	<input class="btntambah" type="submit" name="tambahuser" placeholder="Registrasi">
+	<input class="btntambah" type="submit" name="tambahadmin" placeholder="Registrasi">
 
 	</fieldset>
 <?php 

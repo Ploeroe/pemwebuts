@@ -20,6 +20,10 @@ include("header.php");
 		include("cari.php");
 		break;
 		
+		case "signup":
+		include("signup.php");
+		break;
+		
 		default:
 		include("depan.php");
 		break;

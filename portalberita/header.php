@@ -21,7 +21,7 @@ include("inc/fungsi.php");
 					<img src="image/News.png" alt="" width="30" height="30">
 				</a>
 			</ul>
-			<span class="btnlogout"><a href="#">Sign Up</a></span>
+			<span class="btnlogout"><a href="?open=signup">Sign Up</a></span>
 		</div>
 	</nav>
 	<div class="main">
