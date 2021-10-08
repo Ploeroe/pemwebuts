@@ -1,5 +1,8 @@
 <div class="mainpage">
 
+	<?php 
+		include 'swiper.php';
+	?>
 	<div class="content">
 		<h1 class="todaynews">Today News</h1>
 		<?php 

@@ -90,7 +90,7 @@ if (empty($_SESSION["loginadmin"])) {
 
 	<div class="main">
 		<div class="container">
-			<div class="title">
+			<div class="title mx-auto">
 				<img src="../image/title.png" class="imgtitle">
 			</div>
 			<div class="box mx-auto mb-5">

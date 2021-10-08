@@ -101,66 +101,75 @@ if(isset($error)){
 ?>
 
 <br>
-<form action="./?open=signup" method="POST" enctype='multipart/form-data'>
-
-    <input type="hidden" name="userid">
-	<fieldset  class="berita mx-auto p-3">
-		<h3 class="kotakinput" class="titleform">Tambah user</h3>
+<div class="title mx-auto">
+	<img src="image/title.png" class="imgtitle">
+</div> <hr>
+<div class="box mx-auto mb-5 px-5">
+		<form action="./?open=signup" method="POST" enctype='multipart/form-data'>
 		
-	<div class="inputadmin">
-		<input type='file' name='gambar'>
-	</div>
-
-	<div class="inputadmin">
-		<label for='first'>Nama Depan:</label><br>
-		<input class="kotakinput" type='text' name='first' placeholder='Nama Depan'><br>
-	</div>
-
-	<div class="inputadmin">
-		<label for='last'>Nama Belakang:</label><br>
-		<input class="kotakinput" type='text' name='last' placeholder='Nama Belakang'><br>
-	</div>
-
-	<div class="inputadmin">
-		<label for='email'>Email</label><br>
-		<input class="kotakinput" class="kotakinput" type="text" name="email" placeholder="Email address">
-	</div>
-
-	<div class="inputadmin">
-		<label for='uid'>Username:</label><br>
-		<input class="kotakinput" type='text' name='uid' placeholder='Username'><br>
-	</div>
-
-	<div class="inputadmin">
-		<label for='pwd'>Password:</label><br>
-		<input class="kotakinput" type='password' name='pwd' placeholder='Password'><br>
-	</div>
-
-	<div class="inputadmin">
-		<label for='birthday'>Tanggal Lahir:</label><br>
-		<input class="kotakinput" type='date' name='tanggalLahir' placeholder='Tanggal Lahir'><br>
-	</div>
-
-	<div class="inputadmin">
-		<label for='gender'>Jenis Kelamin:</label><br>
-		<input class="kotakinput" type='radio' id='pria' name='kelamin' value='pria'>
-		<label for='pria'>Pria</label><br>
-		<input class="kotakinput" type='radio' id='perempuan' name='kelamin' value='perempuan'>
-		<label for='perempuan'>Perempuan</label><br>
-	</div>
-
-	<div class="user">
-		<label>Captcha</label> <br>
-		<img src="./controller/captcha.php" alt="gambar" class="mt-3"><br>
-		<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
-	</div>
-
-		<button class="btntambah" type='submit' name="tambahuser">Sign Up</button>
-		<span class="btnlogout"><a href="?open=default">Exit</a></span>
-
+		<input type="hidden" name="userid">
+		<fieldset  class="berita mx-auto p-3">
+			<h3 class="title pb-3">Sign Up</h3>
+			
+			<div class="user">
+				<label for='first'>Profile Picture:</label><br>
+				<input class="kotakinput" type='file' name='gambar'>
+			</div>
+			
+			<div class="user d-flex">
+				<div class="w-50 me-2">
+					<label for='first'>Nama Depan:</label><br>
+					<input class="kotakinput" type='text' name='first' placeholder='Nama Depan' id="input">
+				</div>
+				<div class="w-50"> 
+					<label for='last'>Nama Belakang:</label><br>
+					<input class="kotakinput" type='text' name='last' placeholder='Nama Belakang' id="input"><br>
+				</div>
+			</div>
+			
+			<div class="user d-flex">
+				<div class="w-50 me-2">
+					<label for='email'>Email</label><br>
+					<input class="kotakinput" class="kotakinput" type="text" name="email" placeholder="Email address" id="input">
+				</div>
+				<div class="w-50"> 
+					<div class="user">
+						<label for='uid'>Username:</label><br>
+						<input class="kotakinput" type='text' name='uid' placeholder='Username' id="input"><br>
+					</div>
+				</div>
+			</div>
+		<div class="user">
+			<label for='pwd'>Password:</label><br>
+			<input class="kotakinput" type='password' name='pwd' placeholder='Password' id="input"><br>
+		</div>
+		
+		<div class="user">
+			<label for='birthday'>Tanggal Lahir:</label><br>
+			<input class="kotakinput" type='date' name='tanggalLahir' placeholder='Tanggal Lahir' id="input"><br>
+		</div>
+		
+		<div class="user">
+			<label for='gender'>Jenis Kelamin:</label><br>
+			<input class="radiogender" type='radio' id='pria' name='kelamin' value='pria'>
+			<label class="radiogender" for='pria'>Pria</label>
+			<input class="radiogender" type='radio' id='perempuan' name='kelamin' value='perempuan'>
+			<label class="radiogender" for='perempuan'>Perempuan</label><br>
+		</div>
+		
+		<div class="user">
+			<label>Captcha</label> <br>
+			<div class="text-center">
+				<img src="./controller/captcha.php" alt="gambar" class="mt-3"><br>
+			</div>
+			<input id="input"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
+		</div>
+		
+		<button class="btnsignup" type='submit' name="tambahuser">Sign Up</button>
+		<span class="btnlogout float-left"><a href="?open=default">Exit</a></span>
+		
 	</fieldset>
-
-
+</div>
 </form>
                
                 

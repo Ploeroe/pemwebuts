@@ -84,7 +84,9 @@ if (empty($_SESSION["loginuser"])) {
 
 	<div class="main">
 		<div class="container">
-			
+			<div class="title mx-auto">
+				<img src="image/title.png" class="imgtitle">
+			</div> <hr>
 			<div class="box mx-auto mb-5">
 				<form action="" method="POST">
 					<h1 class="title pb-3">Login</h1>

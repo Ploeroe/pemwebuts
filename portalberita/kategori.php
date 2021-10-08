@@ -1,20 +1,19 @@
 <div class="mainpage">
 
 	<div class="content">
-
+		
 		<?php 
 		global $connect;
-
+		
 		$catid = (isset($_GET['id']) ? $_GET['id'] : '');
-
+		
 		$getalias = mysqli_query($connect,"SELECT * FROM kategori WHERE ID='".$catid."'");
 		while ($al = mysqli_fetch_array($getalias)) {
-
-
 			$sql = mysqli_query($connect,"SELECT * FROM berita WHERE Terbit='1' AND Kategori='".$al['alias']."' ORDER BY ID DESC LIMIT 0,10");
 			while ($b = mysqli_fetch_array($sql)) {
 				extract($b);
-			
+				
+				// <h1 class="todaynews">'.$Kategori.'</h1>
 			echo'
 			<div class="boxnews">
 			<div class="img">

@@ -289,3 +289,109 @@ footer
     border: 0;
 }
 
+/* SignUp */
+.box {
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+    width: 40%;
+}
+
+.user {
+    font-family: "Lemon";
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.kotakinput {
+    height: 35px;
+    border-radius: 30px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    font-family: "Louis";
+}
+
+#input:focus {
+    outline: none;
+}
+
+.radiogender{
+    font-family: 'Louis';
+}
+
+.btnsignup{
+    background: #07949e;
+    border-radius: 50px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+    padding: 6px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: white;
+    font-family: "Lemon";
+    border: none;
+    float: left;
+}
+
+.btnsignup:hover {
+    transform: translateY(-3px);
+    transition: 0.5s ease-in-out;
+    color: white;
+}
+
+.boxswiper {
+    position: absolute;
+    bottom: 0;
+    /* background: rgb(0, 0, 0); Fallback color */
+    /* background: rgba(0, 0, 0, 0.5); Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    vertical-align: middle;
+  }
+
+
+.titleberita-swiper{
+    line-height: 1rem;   
+}
+
+.boxswiper h1 a{
+    color: white;
+    font-family: 'Lemon';
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.populer-swiper{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+    height: 300px;
+    /* border: 0.8px solid #07949e; */
+}
+
+.populer-swiper:hover{
+    box-shadow: 3px 3px 15px rgba(7, 148, 158, 0.75);
+    transition: 0.4s;
+    transform: translateY(-2px);
+}
+
+.populer-swiper img{
+    border-radius: 10px;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-family: swiper-icons;
+    text-transform: none!important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+    line-height: 1;
+    font-size: 20px !important;
+    font-weight: 900;
+    color: #07949e;
+}
+

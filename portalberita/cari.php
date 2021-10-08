@@ -31,7 +31,9 @@
 
 		
 		echo'
-		<button class="pd10 mb10">Hasil pencarian kata kunci : '.str_replace('+',' ', $get_key).'</button>
+		<div class=" mb-5">
+			<button class="btnsearch float-start">Hasil pencarian kata kunci : '.str_replace('+',' ', $get_key).'</button>
+		</div>
 		';
 		
 
@@ -41,13 +43,20 @@
 
 			echo'
 			<div class="boxnews">
-				 <div class="img">
-				 	<img src="'.URL_SITUS.$Gambar.'">
-				 </div>
-				 <h1><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
-				 <p>'.substr(strip_tags($Isi),0,200).'</p>
-				 <div class="clear"></div>
+			<div class="img">
+			<a href="./?open=detail&id='.$ID.'">
+				<img src="'.URL_SITUS.$Gambar.'">
+				</a>
 			</div>
+			<div class="text">
+			   <h1 class="titleberita"><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
+			   <p>'.substr(strip_tags($Isi),0,200).'</p>
+			</div>
+			<button class="btnread">
+			   <a href="./?open=detail&id='.$ID.'">Read more</a>
+		   </button>
+			<div class="clear"></div>
+	   </div>
 
 			';
 

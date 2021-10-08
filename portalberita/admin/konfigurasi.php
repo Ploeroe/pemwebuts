@@ -202,7 +202,7 @@ if (isset($_POST['uploadicon'])) {
 			<input type="text" name="link[]" value="<?=$Link?>" class="kotakinput"> 
 		</div>
 		<div class="listkonfigurasi">
-			<a href="./?mod=konfigurasi&act=hapus&id=<?=$ID;?>"><p class=" kotakinput"> x </p></a>
+			<a href="./?mod=konfigurasi&act=hapus&id=<?=$ID;?>"><p class=" kotakinput pt-3"> <i class="bi bi-trash"></i></p></a>
 		</div>
 		<div class="clear pd5"></div>
 	</div>
