@@ -276,3 +276,16 @@ footer
 	color:#FFF;
 
 }
+
+.detail .img {
+    width: 100%;
+    height: auto;
+    float: left;
+    overflow: hidden;
+}
+
+.detail .img img {
+    width: 100%;
+    border: 0;
+}
+

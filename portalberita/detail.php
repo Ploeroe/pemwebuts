@@ -23,7 +23,7 @@
 				<span> Tanggal: '.$Tanggal.' </span> | <span> Update by: '.$Updateby.' </span>
 			</div>
 			 <div class="img">
-			 	<img src="'.URL_SITUS.$Gambar.'">
+			 	<img width="100%" src="'.URL_SITUS.$Gambar.'">
 			 	<div class="teks-foto">'.$Teks.'</div>
 			 </div>
 			 

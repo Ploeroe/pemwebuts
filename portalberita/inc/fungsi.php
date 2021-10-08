@@ -12,6 +12,8 @@ function getprofilweb($tax)
 	}
 }
 
+
+// Berita diurutkan secara 
 function populer()
 {
 	?>
@@ -48,6 +50,8 @@ function populer()
 
 }
 
+
+// Berita diurutkan secara waktu terbit
 function beritaterbaru()
 {
 	?>
