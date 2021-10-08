@@ -156,6 +156,7 @@ if(isset($error)){
 	</div>
 
 		<button class="btntambah" type='submit' name="tambahuser">Sign Up</button>
+		<span class="btnlogout"><a href="?open=default">Exit</a></span>
 
 	</fieldset>
 

@@ -104,6 +104,7 @@ if (empty($_SESSION["loginuser"])) {
 						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
 					</div>
 					<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
+		            <span class="btnlogin mt-3"><a href="?open=default">Exit</a></span>
 				</form>
 
 				<?php if (isset($error)) : ?>
