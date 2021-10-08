@@ -7,6 +7,7 @@ include("inc/fungsi.php");
 	<title><?=getprofilweb('site_title')?></title>
 	<meta name="description" content="<?=getprofilweb('meta_desc')?>">
 	<meta name="keywords" content="<?=getprofilweb('meta_key')?>">
+	<link rel="icon" href="/image/News.png">
 	<link rel="stylesheet" type="text/css" href="assets/berita.css">
 	<link href="assets/hover.css" rel="stylesheet" media="all">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">

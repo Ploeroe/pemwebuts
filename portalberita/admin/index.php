@@ -44,6 +44,9 @@ include("ceklogin.php");
 			<li class="nav-item">
 				<a class="nav-link" href="?mod=useradmin">Admin</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="?mod=konfigurasi">Konfigurasi</a>
+			</li>
 		</ul>
 		<span class="btnlogout"><a href="?keluar=yes">Log Out</a></span>
 	</div>

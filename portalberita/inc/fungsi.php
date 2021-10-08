@@ -31,7 +31,9 @@ function populer()
 				echo'
 				<div class="side-box">
 					<div class="img">
+					<a href="./?open=detail&id='.$ID.'">
 						<img src="'.URL_SITUS.$Gambar.'">
+					</a>
 					</div>
 					<span>'.substr($Tanggal, 0, 10).' | view: <b>'.$Viewnum.'</b> </span>
 
@@ -56,7 +58,7 @@ function beritaterbaru()
 {
 	?>
 	<!--berita terkini-->
-	<h1 class="todaynews">New News</h1>
+	<h1 class="todaynews">Hot News</h1>
 		<div class="populer">
 			<?php 
 			global $connect;
@@ -69,7 +71,9 @@ function beritaterbaru()
 				echo'
 				<div class="side-box">
 					<div class="img">
+					<a href="./?open=detail&id='.$ID.'">
 						<img src="'.URL_SITUS.$Gambar.'">
+					</a>
 					</div>
 					<span>'.substr($Tanggal, 0, 10).' </span>
 
