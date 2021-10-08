@@ -29,9 +29,11 @@
 
 		}
 
+		
 		echo'
 		<button class="pd10 mb10">Hasil pencarian kata kunci : '.str_replace('+',' ', $get_key).'</button>
 		';
+		
 
 		$sql = mysqli_query($connect,"SELECT * FROM berita WHERE $stradd AND Terbit='1' ORDER BY ID DESC LIMIT 0,10");
 		while ($b = mysqli_fetch_array($sql)) {

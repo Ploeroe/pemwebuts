@@ -78,26 +78,6 @@ include("ceklogin.php");
 		}
 		 ?>
 	</div>
-	<!-- <div class="menu mt-4">
-		<h3>Pilihan Menu :</h3>
-		<div class="row d-flex align-items-center">
-			<div class="col-md-6 col-lg-4 mx-auto">
-				<div class="box">
-					<a href="?mod=kategori">Kategori</a>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="box">
-					<a href="?mod=berita">Berita</a>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="box">
-					<a href="?mod=useradmin">Admin</a>
-				</div>
-			</div>
-		</div>
-	</div> -->
 </div>
 <script>
 			window.onscroll = function () {

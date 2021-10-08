@@ -55,7 +55,7 @@ include("inc/fungsi.php");
 				</ul>
 				<form action="" method="GET" class="d-flex">
 					<input type="text" name="key" placeholder="Type Here" class="form-control me-2">
-					<input type="submit" name="open" value="Search" class="btnsearch">
+					<input type="submit" name="open" value="cari" class="btnsearch">
 				</form>
 					</div>
 					</div>
