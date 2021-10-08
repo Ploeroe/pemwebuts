@@ -1,6 +1,6 @@
 <?php 
-include("header.php");
- ?>
+	include("header.php");
+?>
 
 <div class="pt10 pb10">
 		
@@ -24,6 +24,14 @@ include("header.php");
 		include("signup.php");
 		break;
 		
+		case "login":
+		include("login.php");
+		break;
+		
+		case "default":
+		include("depan.php");
+		break;
+
 		default:
 		include("depan.php");
 		break;

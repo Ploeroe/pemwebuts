@@ -3,6 +3,7 @@
 define('URL_SITUS', 'http://localhost/pemwebuts/portalberita/');
 define('PATH_LOGO', 'image');
 define('PATH_GAMBAR', 'photo');
+define('PATH_GAMBARUSER', 'photouser');
 define('FILE_LOGO', 'logo.png');
 define('FILE_ICON', 'icon.png');
 

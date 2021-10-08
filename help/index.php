@@ -46,6 +46,8 @@
                 echo "You are logged in as user #1";
 
             } else {
+                
+                echo "You are not logged in as user #1";
 
             }
             echo "<form action='upload.php' method='POST' enctype='multipart/form-data'>

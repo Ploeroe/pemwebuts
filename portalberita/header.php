@@ -1,5 +1,6 @@
 <?php 
 include("inc/fungsi.php");
+session_start();
  ?>
 <!DOCTYPE html>
 <html>
@@ -17,16 +18,32 @@ include("inc/fungsi.php");
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
 		<div class="container">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="?open=default">
 					<img src="image/News.png" alt="" width="30" height="30">
 				</a>
 			</ul>
-			<span class="btnlogout"><a href="?open=signup">Sign Up</a></span>
+			<?php
+				if(isset($_SESSION['user'])){
+			?>
+			<span class="btnlogout"><a href="http://localhost/pemwebuts/portalberita/index.php?keluar=yes">Log Out</a></span>
+			<?php
+				} else {
+			?>
+			<span class="btnlogout"><a href="?open=login">Login</a></span>
+			<span class="btnlogout"><a href="?open=signup">Sign Up!</a></span>
+			<?php
+				}
+			?>
 		</div>
 	</nav>
 	<div class="main">
 		<div class="container">
+<?php
 
+$open = (isset($_GET["open"]) ? $_GET["open"] : '');
+if($open !== "login" && $open !== "signup"){
+?>
+	
 		<header>
 			<div class="title mx-auto">
 				<img src="image/title.png" class="imgtitle">
@@ -61,3 +78,6 @@ include("inc/fungsi.php");
 					</div>
 					</div>
 		</header>
+<?php
+	}
+?>

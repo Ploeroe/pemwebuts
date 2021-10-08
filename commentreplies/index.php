@@ -146,7 +146,7 @@
 
     <div class="container" style="margin-top:50px;">
         <div class="row">
-            <div class="col-md-12" align="right">
+            <div class="col-md-12">
         <?php
             if (!$loggedIn)
                 echo '
@@ -161,7 +161,7 @@
             </div>
         </div>
         <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
-            <div class="col-md-12" align="center">
+            <div class="col-md-12">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/u2O_QyPfdpE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
