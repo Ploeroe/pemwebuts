@@ -285,15 +285,68 @@ tbody{
     font-size: 1.5rem;
 }
 
-/* Login Page */
+/* Konfigurasi Page */
+
+.titlekonfigurasi{
+    font-family: "Lemon";
+    color: #07949e;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2%;
+}
 
 .boxkonfigurasi{
-    text-align: left;
-    display: flex;
-    float: left;
+    text-align: center;
     padding-left: 8%;
     padding-right: 8%;
     font-size: 1.5rem;
+    height: 5.5rem;
+
 }
 
-/* Konfigurasi Page */
+.boxkonfigurasi img{
+    border: 2px solid #07949e;
+    padding: 1px;
+    border-radius: 20%;
+    vertical-align: middle;
+}
+
+.inputkonfigurasi{
+    font-size: 1rem;
+}
+
+.btnkonfigurasi {
+    background: #07949e;
+    border-radius: 50px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25);
+    padding: 5px 15px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: white;
+    font-family: "Lemon";
+    font-size: 1rem;
+    border: none;
+}
+
+.btnkonfigurasi:hover {
+    transform: translateY(-3px);
+    transition: 0.5s ease-in-out;
+    color: white;
+}
+
+.kiri{
+    width: 50%;
+}
+.kanan{
+    width: 50%;
+}
+
+.boxkonfigurasibawah{
+    padding: 3rem;
+    text-align: left;
+}
+
+.listkonfigurasi{
+    margin-right: 5px ;
+}

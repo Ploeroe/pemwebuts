@@ -80,79 +80,83 @@ if (isset($_POST['uploadicon'])) {
 }
 
 
- ?>
-<div class="w60 fl">
-<form action="./?mod=konfigurasi" method="POST" enctype="multipart/form-data">
+?>
+<div class="d-flex">
+
+	<div class="kiri">
+		<form action="./?mod=konfigurasi" method="POST" enctype="multipart/form-data">
+		<fieldset class="formkategori mx-auto mb-5">
+			<legend class="titlekonfigurasi">Logo Situs</legend>
+			<div class="boxkonfigurasi">
+				
+				<img src="<?=URL_SITUS.PATH_LOGO.'/'.FILE_LOGO;?>" width="250" class="mb-3">
+				
+				<div class="clear"></div>
+				
+			</div>
+			<input type="file" name="logositus" class="inputkonfigurasi">
+			
+			<input type="submit" name="uploadlogo" value="Upload Logo" class="btnkonfigurasi">
+			
+			
+		</fieldset>
+	</form>
+</div>
+
+<div class="kanan">
+	<form action="./?mod=konfigurasi" method="POST" enctype="multipart/form-data">
 	<fieldset class="formkategori mx-auto mb-5">
-		<legend class="title">Logo Situs</legend>
-	<div class="boxkonfigurasi">
-
-		<img src="<?=URL_SITUS.PATH_LOGO.'/'.FILE_LOGO;?>" width="250">
 		
-		<div class="clear"></div>
+		<legend class="titlekonfigurasi">Icon Situs</legend>
 		
-		<input type="file" name="logositus">
+		<div class="boxkonfigurasi">
+			
+			 <img src="<?=URL_SITUS.'/'.FILE_ICON;?>" width="50">
+			
+			<div class="clear"></div>
+			
+		</div>
+		<input type="file" name="iconsitus" class="inputkonfigurasi">
 		
-		<input type="submit" name="uploadlogo" value="Upload Logo">
-
-	</div>
+		<input type="submit" name="uploadicon" value="Upload Icon" class="btnkonfigurasi">
+		
 		
 	</fieldset>
 </form>
 </div>
-
-<div class="w40 fl">
-<form action="./?mod=konfigurasi" method="POST" enctype="multipart/form-data">
-	<fieldset class="formkategori mx-auto mb-5">
-
-		<legend class="title">Icon Situs</legend>
-
-	<div class="boxkonfigurasi">
-
-		<img src="<?=URL_SITUS.'/'.FILE_ICON;?>" width="50">
-
-		<div class="clear"></div>
-
-		<input type="file" name="iconsitus">
-
-		<input type="submit" name="uploadicon" value="Upload Icon">
-
-	</div>
-
-	</fieldset>
-</form>
 </div>
-
 <div class="clear"></div>
 
 <div class="w100 fl">
 	<form action="./?mod=konfigurasi" method="POST">
 	<fieldset class="formkategori mx-auto mb-5">
-
-		<legend class="title">Tambah Konfigurasi</legend>
-
-	<div class="boxkonfigurasi">
+		
+		<legend class="titlekonfigurasi">Tambah Konfigurasi</legend>
+		
+		<div class="boxkonfigurasibawah">
 
 		<div class="w20 fl pd5 bg_dark bold">Nama</div>
-		<div class="w15 fl pd5 bg_dark bold">Tax</div>
-		<div class="w30 fl pd5 bg_dark bold">Isi</div>
-		<div class="w30 fl pd5 bg_dark bold">Link</div>
-
 		<div class="w20 fl pd5 bg_grey">
-			<input type="text" name="nama" placeholder="Nama" class="form100">
+			<input type="text" name="nama" placeholder="Nama" class="kotakinput">
 		</div>
+		
+		<div class="w15 fl pd5 bg_dark bold">Tax</div>
 		<div class="w15 fl pd5 bg_grey">
-			<input type="text" name="tax" placeholder="Tax" class="form100">
+			<input type="text" name="tax" placeholder="Tax" class="kotakinput">
 		</div>
-		<div class="w30 fl pd5 bg_grey">
-			<input type="text" name="isi" placeholder="Isi" class="form100">
+		
+		<div class="w30 fl pd5 bg_dark bold">Isi</div>
+		<div class="">
+			<input type="text" name="isi" placeholder="Isi" class="kotakinput">
 		</div>
-		<div class="w30 fl pd5 bg_grey">
-			<input type="text" name="link" placeholder="Link" class="form100">
+
+		<div class="w30 fl pd5 bg_dark bold">Link</div>
+		<div class="">
+			<input type="text" name="link" placeholder="Link" class="kotakinput">
 		</div>
 		<div class="clear pd5"></div>
 
-		<input type="submit" name="tambahkonfigurasi" value="Tambah" class="btn-primary">
+		<input type="submit" name="tambahkonfigurasi" value="Tambah" class="btnkonfigurasi">
 
 		<div class="clear"></div>
 
@@ -171,9 +175,9 @@ if (isset($_POST['uploadicon'])) {
 	<form action="./?mod=konfigurasi" method="POST">
 	<fieldset class="formkategori mx-auto mb-5">
 
-		<legend class="title">List Konfigurasi</legend>
+		<legend class="titlekonfigurasi">List Konfigurasi</legend>
 
-	<div class="boxkonfigurasi">
+	<div class="boxkonfigurasibawah">
 
 		<?php 
 
@@ -182,29 +186,32 @@ if (isset($_POST['uploadicon'])) {
 		while($r = mysqli_fetch_array($hasil)){
 			extract($r);
 		 ?>
-
-		 <input type="hidden" name="id[]" value="<?=$ID;?>">
-
-		<div class="w20 fl pd5 bg_grey">
-			<input type="text" name="nama[]" value="<?=$Nama?>" class="form100">
+	<div class="d-flex">
+		<input type="hidden" name="id[]" value="<?=$ID;?>">
+		
+		<div class="listkonfigurasi">
+			<input type="text" name="nama[]" value="<?=$Nama?>" class="kotakinput">
 		</div>
-		<div class="w15 fl pd5 bg_grey">
-			<input type="text" name="tax[]" value="<?=$Tax?>" class="form100">
+		<div class="listkonfigurasi">
+			<input type="text" name="tax[]" value="<?=$Tax?>" class="kotakinput">
 		</div>
-		<div class="w30 fl pd5 bg_grey">
-			<input type="text" name="isi[]" value="<?=$Isi?>" class="form100">
+		<div class="listkonfigurasi">
+			<input type="text" name="isi[]" value="<?=$Isi?>" class="kotakinput">
 		</div>
-		<div class="w30 fl pd5 bg_grey">
-			<input type="text" name="link[]" value="<?=$Link?>" class="w90 fl"> 
-			<a href="./?mod=konfigurasi&act=hapus&id=<?=$ID;?>"><span class="pl5 pr5 ml5 bg_dark center"> x </span></a>
+		<div class="listkonfigurasi">
+			<input type="text" name="link[]" value="<?=$Link?>" class="kotakinput"> 
+		</div>
+		<div class="listkonfigurasi">
+			<a href="./?mod=konfigurasi&act=hapus&id=<?=$ID;?>"><p class=" kotakinput"> x </p></a>
 		</div>
 		<div class="clear pd5"></div>
-
+	</div>
+		
 		<?php 
 		}
-		 ?>
+		?>
 
-		<input type="submit" name="editkonfigurasi" value="Edit" class="btn-primary">
+<input type="submit" name="editkonfigurasi" value="Edit" class="btnkonfigurasi">
 
 		<div class="clear"></div>
 
