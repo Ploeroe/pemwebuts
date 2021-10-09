@@ -3,7 +3,7 @@
 	<?php 
 		include 'swiper.php';
 	?>
-	<div class="content">
+	<div class="content  wow fadeInUp">
 		<h1 class="todaynews">Today News</h1>
 		<?php 
 		global $connect;
@@ -13,7 +13,7 @@
 			extract($b);
 		
 		echo'
-		<div class="boxnews">
+		<div class="boxnews wow fadeInUp">
 			 <div class="img">
 			 <a href="./?open=detail&id='.$ID.'">
 			 	<img src="'.URL_SITUS.$Gambar.'">

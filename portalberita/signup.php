@@ -101,10 +101,10 @@ if(isset($error)){
 ?>
 
 <br>
-<div class="title mx-auto">
+<div class="title mx-auto wow fadeInUp">
 	<img src="image/title.png" class="imgtitle">
 </div> <hr>
-<div class="box mx-auto mb-5 px-5">
+<div class="box mx-auto mb-5 px-5 wow fadeInUp" data-wow-delay="0.4s">
 		<form action="./?open=signup" method="POST" enctype='multipart/form-data'>
 		
 		<input type="hidden" name="userid">

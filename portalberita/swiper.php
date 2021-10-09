@@ -1,6 +1,6 @@
 
 	<!--berita populer-->
-    <div class="headline">
+    <div class="headline  wow fadeInUp" data-wow-delay="0.8s">
         <h1 class="todaynews">Headline</h1>
         <div class="swiper">
             <div class="swiper-wrapper py-1 mb-2">

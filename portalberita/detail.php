@@ -15,7 +15,7 @@
 		$Updateviewnum = mysqli_query($connect,"UPDATE berita SET Viewnum=Viewnum+1 WHERE ID = '".$id."' ");
 		
 		echo'
-		<div class="detail">
+		<div class="detail wow fadeInUp" data-wow-delay="0.6s">
 			<h5 class="kategoriberita">'.$Kategori.'</h5>
 			<h2 class="judulberita">'.$Judul.'</h2>
 

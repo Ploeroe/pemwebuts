@@ -164,7 +164,9 @@ if(isset($error)){
 					<td>'.$Nama.'</td>
 					<td>'.$email.'</td>
 					<td>
-						<a href="?mod=useradmin&act=edit&id='.$ID.'" class="btnedit">Edit</a> <a href="?mod=useradmin&act=hapus&id='.$ID.'" class="btndelete">Hapus</a>
+						<a href="?mod=useradmin&act=edit&id='.$ID.'" class="icon"><i class="bi bi-pencil-square"></i></a> 
+						
+						<a href="?mod=useradmin&act=hapus&id='.$ID.'" class="icon"><i class="bi bi-trash"></i></a>
 					</td>
 				</tr>
 			</tbody>
