@@ -6,12 +6,15 @@
 		global $connect;
 		
 		$catid = (isset($_GET['id']) ? $_GET['id'] : '');
+
+		$resultkategori = mysqli_query($connect, "SELECT * FROM kategori WHERE ID='".$catid."'");
+		$KategoriBerita = mysqli_fetch_assoc($resultkategori);
 		
 		$getalias = mysqli_query($connect,"SELECT * FROM kategori WHERE ID='".$catid."'");
 		while ($al = mysqli_fetch_array($getalias)) {
 			$sql = mysqli_query($connect,"SELECT * FROM berita WHERE Terbit='1' AND Kategori='".$al['alias']."' ORDER BY ID DESC LIMIT 0,10");
-			
-			echo '<h1 class="todaynews wow fadeInUp" data-wow-delay="0.8s">'.$Kategori.'</h1>';
+
+			echo '<h1 class="todaynews wow fadeInUp" data-wow-delay="0.8s">'.$KategoriBerita['Kategori'].'</h1>';
 
 			while ($b = mysqli_fetch_array($sql)) {
 				extract($b);
