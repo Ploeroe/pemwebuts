@@ -453,8 +453,18 @@ hr{
 }
 
 .liked{
-    color: pink;
+    color: red;
     font-size: 0.8rem;
+}
+
+.likebutton{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 /* Any responsive start here */
