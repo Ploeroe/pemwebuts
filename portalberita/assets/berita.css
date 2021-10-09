@@ -215,6 +215,7 @@ body {
 	margin: 0 0 10px 0;
 	padding:0 0 3px 0;
 	border-bottom:1px solid #ccc;
+    /* font-family: 'louiss'; */
 }
 .side-box .img {
 	width:80px;
@@ -407,29 +408,64 @@ footer
     .text p{
         font-size: 0.8rem;
     }
+    .side-box h1{
+	    font-size: 0.7rem;
+    }
+    .side-box span{
+	    font-size: 0.4rem;
+    }
+    .populer{
+        padding: 1.3rem;
+    }
     
 }
 @media screen and (max-width: 1200px) {
     .titleberita a{
-        font-size: 1rem;
+        font-size: 0.8rem;
+    }
+    .side-box h1{
+	    font-size: 0.6rem;
+    }
+    .side-box span{
+	    font-size: 0.3rem;
     }
 } 
 
 @media screen and (max-width: 991px) {
-    .titleberita{
+    .titleberita a{
         font-size: 0.6rem;
-        line-height: 0.8rem;
         }
     .text p{
         font-size: 0.5rem;
     }
-} 
+     .btnread a{
+        font-size: 0.6rem;
+    }
+    .btnread{
+        padding: 3px 10px;
+        margin-top: 0px;
+    }   
+    .side-box{
+        padding: 0px;
+    }
+    .populer{
+        padding: 1rem;
+    }
+    .side-box h1{
+	    font-size: 0.4rem;
+    }
+    .side-box span{
+	    font-size: 0.2rem;
+    }
+}
 
 @media screen and (max-width: 880px) {
-    .titleberita a{
+    .titleberita{
         font-size: 0.3rem;
+        line-height: 1rem;
     }
     .text p{
-        font-size: 0.3em;
+        font-size: 0.3rem;
     }
+ 
 } 
