@@ -26,7 +26,7 @@ include("ceklogin.php");
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
+<nav class="navbar navbar-expand navbar-light bg-light sticky-top" id="nav">
 	<div class="container">
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			<a class="navbar-brand" href="#">

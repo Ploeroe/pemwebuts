@@ -15,7 +15,7 @@
 				
 				// <h1 class="todaynews">'.$Kategori.'</h1>
 			echo'
-			<div class="boxnews">
+			<div class="boxnews wow fadeInUp" data-wow-delay="0.8s">
 			<div class="img">
 				<img src="'.URL_SITUS.$Gambar.'">
 			</div>

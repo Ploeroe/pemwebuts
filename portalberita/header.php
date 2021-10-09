@@ -17,7 +17,7 @@ session_start();
 		rel="stylesheet"
 		href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
 	/>
-
+	<link rel="stylesheet" href="assets/animate.css">
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 </head>
@@ -53,9 +53,9 @@ if($open !== "login" && $open !== "signup"){
 	
 		<header>
 			<div class="title mx-auto">
-				<img src="image/title.png" class="imgtitle">
+				<img src="image/title.png" class="imgtitle wow fadeInUp">
 			</div> <hr>
-			<nav class="navbar navbar-expand navbar-light bg-light mb-5">
+			<nav class="navbar navbar-expand navbar-light bg-light mb-5 wow fadeInUp" data-wow-delay="0.4s">
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">

@@ -1,6 +1,6 @@
 <div class="mainpage">
 
-	<div class="content">
+	<div class="content wow fadeInUp" data-wow-delay="0.4s">
 
 
 		<?php 
@@ -31,8 +31,8 @@
 
 		
 		echo'
-		<div class=" mb-5">
-			<button class="btnsearch float-start">Hasil pencarian kata kunci : '.str_replace('+',' ', $get_key).'</button>
+		<div class=" mb-5 ">
+			<button class="btnsearch float-start wow fadeInUp" data-wow-delay="0.6s">Hasil pencarian kata kunci : '.str_replace('+',' ', $get_key).'</button>
 		</div>
 		';
 		
@@ -42,21 +42,21 @@
 			extract($b);
 
 			echo'
-			<div class="boxnews">
-			<div class="img">
-			<a href="./?open=detail&id='.$ID.'">
-				<img src="'.URL_SITUS.$Gambar.'">
-				</a>
+			<div class="boxnews wow fadeInUp">
+				<div class="img">
+				<a href="./?open=detail&id='.$ID.'">
+					<img src="'.URL_SITUS.$Gambar.'">
+					</a>
+				</div>
+				<div class="text">
+				<h1 class="titleberita"><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
+				<p>'.substr(strip_tags($Isi),0,200).'</p>
+				</div>
+				<button class="btnread">
+					<a href="./?open=detail&id='.$ID.'">Read more</a>
+				</button>
+				<div class="clear"></div>
 			</div>
-			<div class="text">
-			   <h1 class="titleberita"><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
-			   <p>'.substr(strip_tags($Isi),0,200).'</p>
-			</div>
-			<button class="btnread">
-			   <a href="./?open=detail&id='.$ID.'">Read more</a>
-		   </button>
-			<div class="clear"></div>
-	   </div>
 
 			';
 

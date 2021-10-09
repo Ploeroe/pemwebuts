@@ -351,3 +351,34 @@ tbody{
 .listkonfigurasi{
     margin-right: 5px ;
 }
+
+.icon{
+    color: #07949e;
+}
+.icon:hover{
+    color: white;
+    transition: 0.5s;
+}
+
+.imgkonf{
+    max-width: 250px;
+}
+
+@media screen and (max-width: 994px) {
+    thead{
+        font-size: 0.8rem;
+    }
+    tbody{
+        font-size: 0.6rem;
+    }
+    .btnedit{
+        font-size: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .btndelete{
+        font-size: 0.5rem;
+    }
+    .imgkonf{
+        max-width: 150px;
+    }
+} 

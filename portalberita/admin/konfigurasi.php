@@ -85,11 +85,11 @@ if (isset($_POST['uploadicon'])) {
 
 	<div class="kiri">
 		<form action="./?mod=konfigurasi" method="POST" enctype="multipart/form-data">
-		<fieldset class="formkategori mx-auto mb-5">
+		<fieldset class="formkategori mx-auto mb-5 p-2">
 			<legend class="titlekonfigurasi">Logo Situs</legend>
 			<div class="boxkonfigurasi">
 				
-				<img src="<?=URL_SITUS.PATH_LOGO.'/'.FILE_LOGO;?>" width="250" class="mb-3">
+				<img src="<?=URL_SITUS.PATH_LOGO.'/'.FILE_LOGO;?>" class="mb-3 imgkonf">
 				
 				<div class="clear"></div>
 				
@@ -105,7 +105,7 @@ if (isset($_POST['uploadicon'])) {
 
 <div class="kanan">
 	<form action="./?mod=konfigurasi" method="POST" enctype="multipart/form-data">
-	<fieldset class="formkategori mx-auto mb-5">
+	<fieldset class="formkategori mx-auto mb-5 p-2">
 		
 		<legend class="titlekonfigurasi">Icon Situs</legend>
 		

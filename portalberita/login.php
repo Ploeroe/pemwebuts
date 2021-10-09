@@ -77,19 +77,25 @@ if (empty($_SESSION["loginuser"])) {
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" href="assets/animate.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 	</head>
 
 	<body>
 
 	<div class="main">
-		<div class="container">
-			<div class="title mx-auto">
+		<div class="container ">
+			<div class="title mx-auto wow fadeInUp ">
 				<img src="image/title.png" class="imgtitle">
 			</div> <hr>
-			<div class="box mx-auto mb-5">
-				<form action="" method="POST">
-					<h1 class="title pb-3">Login</h1>
+			<div class="box mx-auto mb-5 wow fadeInUp " data-wow-delay="0.4s">
+				<div class="d-flex pe-3 pt-3">
+					<a href="?open=default" class="ms-auto icon"><i class="bi bi-x-square"></i></a>
+				</div>
+				<form action="" method="POST" class="py-2 px-5">
+					<div class="d-flex">
+						<h1 class="title pb-3 mx-auto">Login</h1>
+					</div>
 					<div class="user">
 						<label>Username</label><br>
 						<input id="username" type="text" name="username" placeholder="Username" class="kotakinput">
@@ -106,7 +112,7 @@ if (empty($_SESSION["loginuser"])) {
 						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
 					</div>
 					<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
-		            <span class="btnexit mt-3"><a href="?open=default">Exit</a></span>
+		            
 				</form>
 
 				<?php if (isset($error)) : ?>
@@ -128,6 +134,10 @@ if (empty($_SESSION["loginuser"])) {
 			}
 			}
   		</script>
+		  <script src="./controller/wow.min.js"></script>
+		<script>
+		new WOW().init();
+		</script>
 	</body>
 	</html>
 <?php
