@@ -403,7 +403,7 @@ footer
 }
 
 /* Any responsive start here */
-
+    
 @media screen and (max-width: 1400px) {
     .text p{
         font-size: 0.8rem;
