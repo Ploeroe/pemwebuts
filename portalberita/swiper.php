@@ -19,7 +19,7 @@
                 <div class="populer-swiper">
                 <div class="img text-center">
                 <a href="./?open=detail&id='.$ID.'">
-                <img src="'.URL_SITUS.$Gambar.'" width="300">
+                <img src="'.URL_SITUS.$Gambar.'" class="img-swiper">
                 <h1 class="titleberita titleberita-swiper"><a href="./?open=detail&id='.$ID.'">'.$Judul.'</a></h1>
                 </a>
                 </div>
