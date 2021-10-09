@@ -1,7 +1,4 @@
 <div class="mainpage">
-
-	<div class="content">
-
         <?php 
             $id = (isset($_GET['id']) ? $_GET['id'] : '');
 
@@ -11,28 +8,30 @@
             while ($komen = mysqli_fetch_array($sql)) {
             extract($komen);
 
-            echo'
-            <div class="detail wow fadeInUp" data-wow-delay="0.6s">
-                <p class="kategoriberita">Komentar diulas oleh<br>'.$userfirst.' '.$userlast.'</p>
-                <div class="img">
-                    <img width="100%" src="'.$usergambar.'">
+            echo' 
+                <div class="row">
+                    <div class="col-1">
+                        <img class="imgkomen" src="'.$usergambar.'">
                     </div>
-
-                <div class="info">
-                    <span> Dikomen pada tanggal : '.$Tanggal.' </span>
+                    <div class="col-9 ms-3 mb-3">
+                        <div class="komenberita">'.$userfirst.' '.$userlast.'</div>
+                        <div class="teks-foto">'.nl2br($komentar).'</div>
+                        <div class="tglberita"> '.$Tanggal.' </div>
+                    </div>
+                    <div class="col-1 text-end">
+                        <span class="liked">
+                            </br>
+                            <i class="bi bi-heart-fill"></i>
+                        </span>
+                    </div>
                 </div>
                     
-                <div class="teks-foto  mb-5">'.nl2br($komentar).'</div>
 
                 <div class="clear"></div>
-            </div>
-
             ';
 
             }
         ?>
-
-	</div>
 
 	<div class="clear"></div>
 

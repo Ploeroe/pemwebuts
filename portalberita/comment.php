@@ -5,35 +5,23 @@
 ?>
 
 <div class="mainpage">
-    
-	<div class="content">
-
-        <div class="detail">
-			
+        <div class="boxkomen mt-5 pb-5">
             <form action="./controller/addkomen.php" method="POST">
-
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-
             <input type="hidden" name="komenid">
-
-            <div class="w-50 me-2">
-					<label for='komen'>Comment Here!</label><br>
-					<input class="kotakinput" type='text' name='komen' placeholder='Your comment...' id="input">
+            <div class="me-2">
+                <h1 class="titlekomen" for='komen'>COMMENT</h1>
+                <hr>
+                <div class="me-2">
+                    <?php
+                        include "komentar.php";
+                        ?>
+                <input class="kotakinput" type='text' name='komen' placeholder='Your comment...' id="input">
+                <button class="btnsignup mb-5" type='submit' name="comment">Comment</button>
                 </div>
-            <button class="btnsignup" type='submit' name="comment">Comment</button>
-
-            </form>
-
-            
-            <div class="w-50 me-2">
-                <?php
-                    include "komentar.php";
-                    ?>
             </div>
+            </form>
         </div>
-
-	</div>
-
 	<div class="clear"></div>
 
 </div>
