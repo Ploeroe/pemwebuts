@@ -20,11 +20,6 @@ function debug_to_console($data, $context = 'Debug in Console')
 	echo $output;
 }
 
-if (isset($_GET["keluar"]) && $_GET["keluar"] == 'yes') {
-	session_destroy();
-	header('Location: index.php');
-}
-
 include_once("./inc/koneksi.php");
 
 if (isset($_POST["submit"])) {
@@ -47,13 +42,17 @@ if (isset($_POST["submit"])) {
 
 				$resultverified = mysqli_query($connect, "SELECT * FROM user WHERE username = '$username'");
 
-				$r = mysqli_fetch_array($resultverified);
+				$data = mysqli_fetch_array($resultverified);
 
-				$_SESSION["user"] = $r['username'];
-				$_SESSION["userid"] = $r['id'];
-				$_SESSION["useremail"] = $r['email'];
-				$_SESSION["userfirst"] = $r['first'];
-				$_SESSION["userlast"] = $r['last'];
+				$_SESSION["userid"] = $data['id'];
+				$_SESSION["userfirst"] = $data['first'];
+				$_SESSION["userlast"] = $data['last'];
+				$_SESSION["useremail"] = $data['email'];
+				$_SESSION["userusername"] = $data['username'];
+				$_SESSION["userpassword"] = $data['password'];
+				$_SESSION["usertanggalLahir"] = $data['tanggalLahir'];
+				$_SESSION["usergender"] = $data['gender'];
+				$_SESSION["usergambar"] = $data['gambar'];
                 header('Location: index.php');
 			} else {
 				$error = true;
@@ -111,13 +110,16 @@ if (empty($_SESSION["loginuser"])) {
 						<img src="./controller/captcha.php" alt="gambar" class="mt-3"> <br>
 						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
 					</div>
+
+					<p>Don't have an account? <a href="?open=signup">Sign Up Here!</a></p>
+
+					<?php if (isset($error)) : ?>
+						<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
+					<?php endif; ?>
+
 					<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
-		            
 				</form>
 
-				<?php if (isset($error)) : ?>
-					<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
-				<?php endif; ?>
 				</div>
 			</div>
 		</div>

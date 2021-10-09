@@ -1,43 +1,36 @@
-<div class="mainpage">
+<?php
 
+    $id = $_GET['id'];
+
+?>
+
+<div class="mainpage">
+    
 	<div class="content">
 
-		<?php 
+        <div class="detail">
+			
+            <form action="./controller/addkomen.php" method="POST">
 
-		$id = (isset($_GET['id']) ? $_GET['id'] : '');
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
 
-		global $connect;
+            <input type="hidden" name="komenid">
 
-		$sql = mysqli_query($connect,"SELECT * FROM berita WHERE Terbit='1' AND ID = '".$id."' ");
-		while ($b = mysqli_fetch_array($sql)) {
-		extract($b);
+            <div class="w-50 me-2">
+					<label for='komen'>Comment Here!</label><br>
+					<input class="kotakinput" type='text' name='komen' placeholder='Your comment...' id="input">
+                </div>
+            <button class="btnsignup" type='submit' name="comment">Comment</button>
 
-		$Updateviewnum = mysqli_query($connect,"UPDATE berita SET Viewnum=Viewnum+1 WHERE ID = '".$id."' ");
-		
-		echo'
-		<div class="detail">
-			<h5 class="kategoriberita">'.$Kategori.'</h5>
-			<h2 class="judulberita">'.$Judul.'</h2>
+            </form>
 
-			<div class="info mb-5">
-				<span> Tanggal: '.$Tanggal.' </span> | <span> Update by: '.$Updateby.' </span>
-			</div>
-			 <div class="img">
-			 	<img width="100%" src="'.URL_SITUS.$Gambar.'">
-			 	<div class="teks-foto">'.$Teks.'</div>
-			 </div>
-			 
-			 <p>'.nl2br($Isi).'</p>
-			 <div class="clear"></div>
-		</div>
-
-		';
-
-		}
-		?>
-		<div class="clear"></div>
-
-
+            
+            <div class="w-50 me-2">
+                <?php
+                    include "komentar.php";
+                    ?>
+            </div>
+        </div>
 
 	</div>
 

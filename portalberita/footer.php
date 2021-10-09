@@ -18,7 +18,7 @@
   autoplay: {
             delay: 2500,
              },
-//   autoHeight: true,
+  // autoHeight: true,
   slidesPerView: 3,
 	spaceBetween: 30,
 	height : 40,

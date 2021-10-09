@@ -1,12 +1,18 @@
 <?php 
 	include("header.php");
+
+	if (isset($_GET["keluar"]) && $_GET["keluar"] == 'yes') {
+		session_destroy();
+		header('Location: index.php');
+	}
+	
 ?>
 
 <div class="pt10 pb10">
 		
 	<?php
 	$open = (isset($_GET["open"]) ? $_GET["open"] : '') ;
-	
+
 	switch ($open) {
 		case "cat":
 		include("kategori.php");

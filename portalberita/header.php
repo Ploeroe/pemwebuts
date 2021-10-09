@@ -13,6 +13,7 @@ session_start();
 	<link href="assets/hover.css" rel="stylesheet" media="all">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 	<link
 		rel="stylesheet"
 		href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -22,7 +23,7 @@ session_start();
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
 		<div class="container">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<a class="navbar-brand" href="?open=default">
@@ -30,7 +31,7 @@ session_start();
 				</a>
 			</ul>
 			<?php
-				if(isset($_SESSION['user'])){
+				if(isset($_SESSION['userid'])){
 			?>
 			<span class="btnlogout"><a href="http://localhost/pemwebuts/portalberita/index.php?keluar=yes">Log Out</a></span>
 			<?php
@@ -43,10 +44,10 @@ session_start();
 			?>
 		</div>
 	</nav>
+
 	<div class="main">
 		<div class="container">
 <?php
-
 $open = (isset($_GET["open"]) ? $_GET["open"] : '');
 if($open !== "login" && $open !== "signup"){
 ?>

@@ -14,89 +14,84 @@ function debug_to_console($data, $context = 'Debug in Console')
 	echo $output;
 }
 
+
 if (isset($_POST['tambahuser'])) {
+	if ($_POST["captcha"] == $_SESSION["code"]) {
 
-	global $gambar;
-	//cek apakah ada gambar
-	if(!empty($_FILES['gambar']['name']) && ($_FILES['gambar']['error'] !== 4 ))
-	{
-		$gambarfile_name = $_FILES['gambar']['name'];
-		$gambarfile = $_FILES['gambar']['tmp_name'];
-		$gambarsize = $_FILES['gambar']['size'];
-		$gambarerror = $_FILES['gambar']['error'];
-		$filetype = $_FILES['gambar']['type'];
-		
-		$fileExt = explode('.',$gambarfile_name);
-		$fileActualExt = strtolower(end($fileExt));
+			global $gambar;
+			//cek apakah ada gambar
+			if(!empty($_FILES['gambar']['name']) && ($_FILES['gambar']['error'] !== 4 ))
+			{
+				$gambarfile_name = $_FILES['gambar']['name'];
+				$gambarfile = $_FILES['gambar']['tmp_name'];
+				$gambarsize = $_FILES['gambar']['size'];
+				$gambarerror = $_FILES['gambar']['error'];
+				$filetype = $_FILES['gambar']['type'];
+				
+				$fileExt = explode('.',$gambarfile_name);
+				$fileActualExt = strtolower(end($fileExt));
 
-		$allowtype = array('image/jpeg', 'image/jpg', 'image/png');
+				$allowtype = array('image/jpeg', 'image/jpg', 'image/png');
 
-		if(!in_array($filetype, $allowtype))
-		{
+				if(!in_array($filetype, $allowtype))
+				{
 
-			echo 'Invalid file type';
-			exit;
-		}
+					echo 'Invalid file type';
+					exit;
+				}
 
-		$path = PATH_GAMBARUSER.'/';
-		Debug_to_console($path);
+				$path = PATH_GAMBARUSER.'/';
 
+				if( isset($gambarfile) && isset($gambarfile_name) ) {
 
-		if( isset($gambarfile) && isset($gambarfile_name) ) {
+					$gambarbaru = uniqid('', true).".".$_POST['uid'];
 
-			$gambarbaru = uniqid('', true).".".$_POST['uid'];
+					$dest1 = './'.$path.$gambarbaru.'.jpg';
+					$dest2 = $path.$gambarbaru.'.jpg';
 
-			$dest1 = './'.$path.$gambarbaru.'.jpg';
-			$dest2 = $path.$gambarbaru.'.jpg';
+					move_uploaded_file($_FILES['gambar']['tmp_name'], $dest1);
 
-			move_uploaded_file($_FILES['gambar']['tmp_name'], $dest1);
+					$gambar = $dest2;
 
-			$gambar = $dest2;
+				} else {
 
+					$gambar = $_POST['gambar'];
+				}
+			}
+			
+			if(isset($_POST['first'], $_POST['last'], $_POST['uid'], $_POST['email'], $_POST['pwd'], $_POST['tanggalLahir'], $_POST['kelamin'])){
+			$first = strtolower(stripslashes(mysqli_real_escape_string($connect,$_POST['first'])));
+			$last = strtolower(stripslashes(mysqli_real_escape_string($connect,$_POST['last'])));
+			$uid = mysqli_real_escape_string($connect,$_POST['uid']);
+			$email = mysqli_real_escape_string($connect,$_POST['email']);
+			$pwd = mysqli_real_escape_string($connect,$_POST['pwd']);
+			$date = mysqli_real_escape_string($connect,$_POST['tanggalLahir']);
+			$gender = mysqli_real_escape_string($connect,$_POST['kelamin']);
+
+			$password = password_hash($pwd, PASSWORD_DEFAULT);
+
+			$sql = mysqli_query($connect, "SELECT * FROM user WHERE username='".$uid."' OR email ='".$email."' ");
+			$hasil = mysqli_num_rows($sql);
+
+			if ($hasil > 0) {
+				
+				$error = "Username dan email sudah pernah didaftarkan!";
+
+			}else{
+
+				$sql = mysqli_query($connect,"INSERT INTO user (first, last, username, email, password, tanggalLahir, gender, gambar) VALUES ('$first', '$last', '$uid', '$email', '$password', '$date', '$gender', '$gambar');");
+
+				$error = "Berhasil menambahkan user admin baru!";
+
+			}
 		} else {
-
-			$gambar = $_POST['gambar'];
+			$error = "Data tidak lengkap tolong isi ulang!";
 		}
+
+	} else {
+		$error = "Captcha tidak sesuai, Ulang lagi!";
 	}
-	
-	$first = strtolower(stripslashes(mysqli_real_escape_string($connect,$_POST['first'])));
-    $last = strtolower(stripslashes(mysqli_real_escape_string($connect,$_POST['last'])));
-    $uid = mysqli_real_escape_string($connect,$_POST['uid']);
-    $email = mysqli_real_escape_string($connect,$_POST['email']);
-    $pwd = mysqli_real_escape_string($connect,$_POST['pwd']);
-    $date = mysqli_real_escape_string($connect,$_POST['tanggalLahir']);
-    $gender = mysqli_real_escape_string($connect,$_POST['kelamin']);
-
-    $password = password_hash($pwd, PASSWORD_DEFAULT);
-
-	$sql = mysqli_query($connect, "SELECT * FROM user WHERE username='".$uid."' OR email ='".$email."' ");
-	$hasil = mysqli_num_rows($sql);
-
-	if ($hasil > 0) {
-		
-		$error = "Username dan email sudah pernah didaftarkan";
-
-	}else{
-
-		Debug_to_console($first);
-		Debug_to_console($last);
-		Debug_to_console($uid);
-		Debug_to_console($email);
-		Debug_to_console($pwd);
-		Debug_to_console($date);
-		Debug_to_console($gender);
-		Debug_to_console($gambar);
-		$sql = mysqli_query($connect,"INSERT INTO user (first, last, username, email, password, tanggalLahir, gender, gambar) VALUES ('$first', '$last', '$uid', '$email', '$password', '$date', '$gender', '$gambar');");
-
-		$error = "Berhasil menambahkan user admin baru";
-
-	}
-
-}
-
-if(isset($error)){
-    echo $error;
-}
+} 
 
 ?>
 
@@ -109,6 +104,11 @@ if(isset($error)){
 		
 		<input type="hidden" name="userid">
 		<fieldset  class="berita mx-auto p-3">
+
+			<div class="d-flex pe-3 pt-3">
+				<a href="?open=default" class="ms-auto icon"><i class="bi bi-x-square"></i></a>
+			</div>
+
 			<h3 class="title pb-3">Sign Up</h3>
 			
 			<div class="user">
@@ -165,8 +165,18 @@ if(isset($error)){
 			<input id="input"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
 		</div>
 		
+		<?php 
+		if(isset($error)){
+    	echo "<p style='color: red; font-style:italic'>
+		
+		$error
+		
+		</p>";
+		}
+		?>
+
+		<p>Already have an account? <a href="?open=login">Login Here!</a></p>
 		<button class="btnsignup" type='submit' name="tambahuser">Sign Up</button>
-		<span class="btnlogout"><a href="?open=default">Exit</a></span>
 		
 	</fieldset>
 </div>

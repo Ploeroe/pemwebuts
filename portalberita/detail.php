@@ -37,7 +37,9 @@
 		?>
 		<div class="clear"></div>
 
-
+		<?php
+		include 'comment.php'
+		?>
 
 	</div>
 
