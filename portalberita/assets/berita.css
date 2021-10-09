@@ -395,3 +395,41 @@ footer
     color: #07949e;
 }
 
+.img-swiper{
+    max-width: 300px;
+    max-height: 200px;
+    padding-bottom: 1rem;
+}
+
+/* Any responsive start here */
+
+@media screen and (max-width: 1400px) {
+    .text p{
+        font-size: 0.8rem;
+    }
+    
+}
+@media screen and (max-width: 1200px) {
+    .titleberita a{
+        font-size: 1rem;
+    }
+} 
+
+@media screen and (max-width: 991px) {
+    .titleberita{
+        font-size: 0.6rem;
+        line-height: 0.8rem;
+        }
+    .text p{
+        font-size: 0.5rem;
+    }
+} 
+
+@media screen and (max-width: 880px) {
+    .titleberita a{
+        font-size: 0.3rem;
+    }
+    .text p{
+        font-size: 0.3em;
+    }
+} 

@@ -32,6 +32,20 @@
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  breakpoints: {
+        499: {
+            slidesPerView: 1,
+            spaceBetweenSlides: 30
+        },
+        998: {
+            slidesPerView: 2,
+            spaceBetweenSlides: 40
+        },
+        1200: {
+          slidesPerView: 3,
+	        spaceBetweenSlides: 30
+        },
+    }
 
   // And if we need scrollbar
 
