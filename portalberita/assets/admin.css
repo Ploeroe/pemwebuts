@@ -27,6 +27,7 @@ body {
     background-position: top;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
     position: relative;
     text-align: center;
 }

@@ -166,7 +166,7 @@ if(isset($error)){
 		</div>
 		
 		<button class="btnsignup" type='submit' name="tambahuser">Sign Up</button>
-		<span class="btnlogout float-left"><a href="?open=default">Exit</a></span>
+		<span class="btnlogout"><a href="?open=default">Exit</a></span>
 		
 	</fieldset>
 </div>
