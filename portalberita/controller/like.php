@@ -1,7 +1,7 @@
 <?php
 
 include_once "../inc/koneksi.php";
-if(!isset($_SESSION['userid'])){
+if(session_id() == '') {
     session_start();
 }
 

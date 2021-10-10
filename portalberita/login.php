@@ -1,9 +1,9 @@
 <?php
 include_once('./inc/fungsi.php');
 
-if(isset($_SESSION['user'])){
-    session_start();
-} 
+if(session_id() == '') {
+	session_start();
+}
 
 // fitur debug yang dapat kita panggil
 // contoh : debug_to_console($data);

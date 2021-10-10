@@ -1,7 +1,9 @@
 <?php
 
 include_once "../inc/koneksi.php";
-session_start();
+if(session_id() == '') {
+    session_start();
+}
 // fitur debug yang dapat kita panggil
 // contoh : debug_to_console($data);
 function debug_to_console($data, $context = 'Debug in Console')
