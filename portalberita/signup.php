@@ -113,45 +113,45 @@ if (isset($_POST['tambahuser'])) {
 			
 			<div class="user">
 				<label for='first'>Profile Picture:</label><br>
-				<input class="kotakinput" type='file' name='gambar'>
+				<input class="kotakinput" type='file' name='gambar' required>
 			</div>
 			
 			<div class="user d-flex">
 				<div class="w-50 me-2">
 					<label for='first'>Nama Depan:</label><br>
-					<input class="kotakinput" type='text' name='first' placeholder='Nama Depan' id="input">
+					<input class="kotakinput" type='text' name='first' placeholder='Nama Depan' id="input" required>
 				</div>
 				<div class="w-50"> 
 					<label for='last'>Nama Belakang:</label><br>
-					<input class="kotakinput" type='text' name='last' placeholder='Nama Belakang' id="input"><br>
+					<input class="kotakinput" type='text' name='last' placeholder='Nama Belakang' id="input" required><br>
 				</div>
 			</div>
 			
 			<div class="user d-flex">
 				<div class="w-50 me-2">
 					<label for='email'>Email</label><br>
-					<input class="kotakinput" class="kotakinput" type="text" name="email" placeholder="Email address" id="input">
+					<input class="kotakinput" class="kotakinput" type="email" name="email" placeholder="Email address" id="input" required>
 				</div>
 				<div class="w-50"> 
 					<div class="user">
 						<label for='uid'>Username:</label><br>
-						<input class="kotakinput" type='text' name='uid' placeholder='Username' id="input"><br>
+						<input class="kotakinput" type='text' name='uid' placeholder='Username' id="input" required><br>
 					</div>
 				</div>
 			</div>
 		<div class="user">
 			<label for='pwd'>Password:</label><br>
-			<input class="kotakinput" type='password' name='pwd' placeholder='Password' id="input"><br>
+			<input class="kotakinput" type='password' name='pwd' placeholder='Password' id="input" required><br>
 		</div>
 		
 		<div class="user">
 			<label for='birthday'>Tanggal Lahir:</label><br>
-			<input class="kotakinput" type='date' name='tanggalLahir' placeholder='Tanggal Lahir' id="input"><br>
+			<input class="kotakinput" type='date' name='tanggalLahir' placeholder='Tanggal Lahir' id="input" required><br>
 		</div>
 		
 		<div class="user">
-			<label for='gender'>Jenis Kelamin:</label><br>
-			<input class="radiogender" type='radio' id='pria' name='kelamin' value='pria'>
+			<label for='gender'>Jenis Kelamin:</label required><br>
+			<input class="radiogender" type='radio' id='pria' name='kelamin' value='pria' required>
 			<label class="radiogender" for='pria'>Pria</label>
 			<input class="radiogender" type='radio' id='perempuan' name='kelamin' value='perempuan'>
 			<label class="radiogender" for='perempuan'>Perempuan</label><br>

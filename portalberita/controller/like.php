@@ -1,7 +1,10 @@
 <?php
 
 include_once "../inc/koneksi.php";
-session_start();
+if(!isset($_SESSION['userid'])){
+    session_start();
+}
+
 // fitur debug yang dapat kita panggil
 // contoh : debug_to_console($data);
 function debug_to_console($data, $context = 'Debug in Console')
@@ -42,6 +45,6 @@ if (isset($_POST['like'])) {
     } 
 } 
 
-// header("location: http://localhost/pemwebuts/portalberita/?open=detail&id=$beritaid");
+header("location: ../?open=detail&id=$beritaid");
 
 ?>

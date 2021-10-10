@@ -53,6 +53,7 @@ if (isset($_POST["submit"])) {
 				$_SESSION["usertanggalLahir"] = $data['tanggalLahir'];
 				$_SESSION["usergender"] = $data['gender'];
 				$_SESSION["usergambar"] = $data['gambar'];
+
                 header('Location: index.php');
 			} else {
 				$error = true;
@@ -97,18 +98,18 @@ if (empty($_SESSION["loginuser"])) {
 					</div>
 					<div class="user">
 						<label>Username</label><br>
-						<input id="username" type="text" name="username" placeholder="Username" class="kotakinput">
+						<input id="username" type="text" name="username" placeholder="Username" class="kotakinput" required>
 					</div> <br>
 
 					<div class="user">
 						<label>Password</label><br>
-						<input id="password" type="password" name="password" placeholder="Password" class="kotakinput">
+						<input id="password" type="password" name="password" placeholder="Password" class="kotakinput" required>
 					</div> <br>
 
 					<div class="user">
 						<label>Captcha</label> <br>
 						<img src="./controller/captcha.php" alt="gambar" class="mt-3"> <br>
-						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3">
+						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3" required>
 					</div>
 
 					<p>Don't have an account? <a href="?open=signup">Sign Up Here!</a></p>

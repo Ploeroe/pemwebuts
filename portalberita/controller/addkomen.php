@@ -41,24 +41,15 @@ if (isset($_POST['comment'])) {
             Debug_to_console($usergambar);
             Debug_to_console($komentar);
 
-
             $sql = mysqli_query($connect, "INSERT INTO comment (beritaid, userid, userfirst, userlast, usergambar, komentar, tanggalkomentar) VALUES ('$beritaid','$userid', '$userfirst', '$userlast', '$usergambar', '$komentar', '" . date("Y-m-d H:i:s") . "');");
 
             $error = "Berhasil menambahkan komen baru!";
-            echo "<script>
-                    alert('" . $error . "');
-                    document.location.href = '../?open=detail&id=" . $beritasekarang . ")';
-                </script>";
+            header("location: ../?open=detail&id=$beritasekarang");
         } else {
             $error = "Anda belum menulis apa - apa!";
         }
     } else {
         $error = "Anda butuh login terlebih dahulu!";
-        echo "<script>
-                alert('" . $error . "');
-                document.location.href = '../?open=login';
-            </script>";
+        header("location: ../?open=login");
     }
 }
-
-//header("location: http://localhost/pemwebuts/portalberita/?open=detail&id=$beritasekarang");

@@ -78,12 +78,12 @@ if(isset($error)){
 		<h3 class="titleform">Tambah user</h3>
 			<div class="inputadmin">
 				<label>Nama User</label><br>
-				<input class="kotakinput" type="text" name="nama" placeholder="Nama Lengkap" value="<?=$b['Nama']?>">
+				<input class="kotakinput" type="text" name="nama" placeholder="Nama Lengkap" value="<?=$b['Nama']?>" required>
 			</div>
 
 			<div class="inputadmin">
 				<label>Username</label><br>
-				<input class="kotakinput" type="text" name="username" placeholder="Username" value="<?=$b['username']?>">
+				<input class="kotakinput" type="text" name="username" placeholder="Username" value="<?=$b['username']?>" required>
 			</div>
 
 			<div class="inputadmin">
@@ -93,10 +93,10 @@ if(isset($error)){
 
 			<div class="inputadmin">
 				<label>Email</label><br>
-				<input class="kotakinput" type="text" name="email" placeholder="Email address" value="<?=$b['email']?>">
+				<input class="kotakinput" type="email" name="email" placeholder="Email address" value="<?=$b['email']?>" required>
 			</div>
 
-			<input type="submit" class="btntambah" name="<?=($b['ID']? 'edituser' : 'tambahadmin')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>">
+			<input type="submit" class="btntambah" name="<?=($b['ID']? 'edituser' : 'tambahadmin')?>" value="<?=($b['ID']? 'Edit' : 'Tambah')?>" required>
 	</fieldset>
 
 <?php
