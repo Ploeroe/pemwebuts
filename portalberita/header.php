@@ -2,8 +2,16 @@
 include("inc/fungsi.php");
 if(session_id() == '') {
 	session_start();
+	
+	if(isset($_SESSION['userid'])){
+		$usergambar = $_SESSION['usergambar'];
+		$userfirst = $_SESSION['userfirst'];
+		$userlast = $_SESSION['userlast'];
+	}
+		
 }
  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +44,13 @@ if(session_id() == '') {
 				if(isset($_SESSION['userid'])){
 			?>
 			<span class="btnlogout"><a href="http://localhost/pemwebuts/portalberita/index.php?keluar=yes">Log Out</a></span>
+
+                    <div class="col-1">
+                        <img class="imgkomen" src=<?php echo " $usergambar";?> >
+                    </div>
+                    <div class="col-9 ms-3 mb-3">
+                        <div class="komenberita"><?php echo " $userfirst  $userlast"; ?></div>
+
 			<?php
 				} else {
 			?>
