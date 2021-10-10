@@ -30,7 +30,8 @@ if(session_id() == '') {
 	/>
 	<link rel="stylesheet" href="assets/animate.css">
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
@@ -43,22 +44,24 @@ if(session_id() == '') {
 			<?php
 				if(isset($_SESSION['userid'])){
 			?>
-			<span class="btnlogout"><a href="http://localhost/pemwebuts/portalberita/index.php?keluar=yes">Log Out</a></span>
-
-                    <div class="col-1">
-                        <img class="imgkomen" src=<?php echo " $usergambar";?> >
-                    </div>
-                    <div class="col-9 ms-3 mb-3">
-                        <div class="komenberita"><?php echo " $userfirst  $userlast"; ?></div>
-
-			<?php
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item mt-3 me-2">
+					<div class="namanav"><?php echo " $userfirst  $userlast"; ?></div>
+				</li>
+				<li class="nav-item mt-2">
+					<img class="imgnav" src=<?php echo " $usergambar";?> >
+				</li>
+				<span class="btnlogout ms-2"><a href="http://localhost/pemwebuts/portalberita/index.php?keluar=yes">Log Out</a></span>
+					
+					<?php
 				} else {
-			?>
+					?>
 			<span class="btnlogout me-2"><a href="?open=login">Login</a></span>
 			<span class="btnlogout"><a href="?open=signup">Sign Up</a></span>
 			<?php
 				}
-			?>
+				?>
+			</ul>
 		</div>
 	</nav>
 

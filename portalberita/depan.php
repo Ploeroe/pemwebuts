@@ -3,8 +3,8 @@
 	<?php 
 		include 'swiper.php';
 	?>
-	<div class="content  wow fadeInUp">
-		<h1 class="todaynews">Today News</h1>
+	<div class="content wow fadeInUp">
+		<h1 class="todaynews wow fadeInLeft" data-aos="fade-right"  data-aos-duration="1000">Today News</h1>
 		<?php 
 		global $connect;
 
@@ -13,7 +13,7 @@
 			extract($b);
 		
 		echo'
-		<div class="boxnews wow fadeInUp">
+		<div class="boxnews" data-aos="fade-up"  data-aos-duration="1000">
 			 <div class="img">
 			 <a href="./?open=detail&id='.$ID.'">
 			 	<img src="'.URL_SITUS.$Gambar.'">

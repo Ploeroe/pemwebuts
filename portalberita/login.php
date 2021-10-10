@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
 	if ($_POST["captcha"] != $_SESSION["code"]) {
 		$error = true;
 		
-    } else {
+    // } else {
 
 		$username = mysqli_real_escape_string($connect, $_POST['username']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);

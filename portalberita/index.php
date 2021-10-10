@@ -38,6 +38,10 @@
 		include("depan.php");
 		break;
 
+		case "about":
+		include("about.php");
+		break;
+
 		default:
 		include("depan.php");
 		break;

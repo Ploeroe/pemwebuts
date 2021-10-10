@@ -3,9 +3,51 @@
 </div>
 
 <footer>
-		<div class="container bg-white">
-			<div class="py-3 my-5 text-center">
-				Copyright &copy; 2021 | gercepnews.my.id
+  <div class="footer py-5 mt-5">
+      <div class="row">
+        <div class="col-4 mt-3">
+          <img src="image/title.png" alt="" width="300">
+          <p class="titlefooter">Your daily news</p>
+        </div>
+        <div class="col-2 mt-3 ">
+        <div class="text-start footerlink">
+          <h4 class="titlefooter">Our News</h4>
+            <i class="bi bi-play-fill "></i><a href="./"> Home</a><br>
+            <?php 
+						global $connect;
+
+						$menu = mysqli_query($connect,"SELECT * FROM kategori WHERE Terbit='1' ORDER BY ID ASC LIMIT 0,10");
+						while ($r = mysqli_fetch_array($menu)) {
+							extract($r);
+							
+							echo'
+              <i class="bi-play-fill"></i><a href="./?open=cat&id='.$ID.'"> '.$Kategori.'</a><br>
+							';
+						}
+
+						?>
+          </div>
+        </div>
+        <div class="col-2 mt-3">
+          <div class="text-start">
+          <h4 class="titlefooter">Contact Us</h4>
+            <p>
+              <i class="bi bi-instagram"></i> : @gercepnews <br>
+              <i class="bi bi-telephone"></i> : (021) 5423537 <br>
+              <i class="bi bi-envelope"></i> : gercepnews@my.id
+            </p>
+          </div>
+        </div>
+        <div class="col-4 mt-3">
+          <div class="text-start">
+          <h4 class="titlefooter">Our Location</h4>
+            <p>
+              <i class="bi bi-house-door"></i> Jalan Batu Nunggal No. 26 Jakarta Selatan <br>
+              <i class="bi bi-house-door"></i> Discovery Place Blok A3 No. 77 Surakarta <br>
+              <i class="bi bi-house-door"></i> Jl Guru Patimpus Deli Plaza, Sumatera Utara
+            </p>
+          </div>
+        </div>
 			</div>
 		</div>
 </footer>
@@ -54,6 +96,9 @@
 <script src="./controller/wow.min.js"></script>
 <script>
 new WOW().init();
+</script>
+<script>
+  AOS.init();
 </script>
 </body>
 </html>

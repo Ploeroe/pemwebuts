@@ -18,10 +18,10 @@ function populer()
 {
 	?>
 	<!--berita populer-->
-	<div class="wow fadeInUp">
+	<div class="">
 
-		<h1 class="todaynews">Top News</h1>
-		<div class="populer">
+	<h1 class="todaynews wow fadeInRight" data-wow-delay="0.6s" data-aos="fade-left"  data-aos-duration="1000">Top News</h1>
+		<div class="populer" data-aos="fade-up"  data-aos-duration="1000">
 			<?php 
 			global $connect;
 			
@@ -61,10 +61,10 @@ function beritaterbaru()
 {
 	?>
 	<!--berita terkini-->
-	<div class="wow fadeInUp" data-wow-delay="0.6s">
+	<div class= >
 
-		<h1 class="todaynews  wow fadeInUp">Hot News</h1>
-		<div class="populer">
+		<h1 class="todaynews wow fadeInRight" data-wow-delay="0.6s" data-aos="fade-left"  data-aos-duration="1000">Hot News</h1>
+		<div class="populer" data-aos="fade-up"  data-aos-duration="1000">
 			<?php 
 			global $connect;
 			

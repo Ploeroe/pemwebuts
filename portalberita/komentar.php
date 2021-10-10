@@ -4,7 +4,6 @@
     }
 ?>
 
-<div class="mainpage">
     <?php
     $id = (isset($_GET['id']) ? $_GET['id'] : '');
 
@@ -107,5 +106,4 @@
 
     <div class="clear"></div>
 
-</div>
 
