@@ -19,30 +19,21 @@ function debug_to_console($data, $context = 'Debug in Console')
     echo $output;
 }
 
-$beritasekarang = $_POST['id'];
-Debug_to_console($beritasekarang);
-debug_to_console($_POST['comment']);
-debug_to_console($_SESSION['userid']);
 
 
 if (isset($_POST['comment'])) {
+    $beritasekarang = $_POST['idberita'];
+    
     if (isset($_SESSION['userid'])) {
         if (isset($_POST['komen'])) {
-
-            $beritaid = mysqli_real_escape_string($connect, $_POST['id']);
+            
+            $beritaid = mysqli_real_escape_string($connect, $_POST['idberita']);
             $userid = mysqli_real_escape_string($connect, $_SESSION['userid']);
             $userfirst = mysqli_real_escape_string($connect, $_SESSION['userfirst']);
             $userlast = mysqli_real_escape_string($connect, $_SESSION['userlast']);
             $usergambar = mysqli_real_escape_string($connect, $_SESSION['usergambar']);
             $komentar = mysqli_real_escape_string($connect, $_POST['komen']);
-
-            Debug_to_console($beritaid);
-            Debug_to_console($userid);
-            Debug_to_console($userfirst);
-            Debug_to_console($userlast);
-            Debug_to_console($usergambar);
-            Debug_to_console($komentar);
-
+            
             $sql = mysqli_query($connect, "INSERT INTO comment (beritaid, userid, userfirst, userlast, usergambar, komentar, tanggalkomentar) VALUES ('$beritaid','$userid', '$userfirst', '$userlast', '$usergambar', '$komentar', '" . date("Y-m-d H:i:s") . "');");
 
             $error = "Berhasil menambahkan komen baru!";
