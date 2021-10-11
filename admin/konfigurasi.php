@@ -123,26 +123,26 @@ if (isset($_POST['uploadicon'])) {
 
 				<div class="w20 fl pd5 bg_dark bold">Nama</div>
 				<div class="w20 fl pd5 bg_grey">
-					<input type="text" name="nama" placeholder="Nama" class="kotakinput">
+					<input type="text" name="nama" placeholder="Nama" class="kotakinput" required>
 				</div>
 
 				<div class="w15 fl pd5 bg_dark bold">Tax</div>
 				<div class="w15 fl pd5 bg_grey">
-					<input type="text" name="tax" placeholder="Tax" class="kotakinput">
+					<input type="text" name="tax" placeholder="Tax" class="kotakinput" required>
 				</div>
 
 				<div class="w30 fl pd5 bg_dark bold">Isi</div>
 				<div class="">
-					<input type="text" name="isi" placeholder="Isi" class="kotakinput">
+					<input type="text" name="isi" placeholder="Isi" class="kotakinput" required>
 				</div>
 
 				<div class="w30 fl pd5 bg_dark bold">Link</div>
 				<div class="">
-					<input type="text" name="link" placeholder="Link" class="kotakinput">
+					<input type="text" name="link" placeholder="Link" class="kotakinput" required>
 				</div>
 				<div class="clear pd5"></div>
 
-				<input type="submit" name="tambahkonfigurasi" value="Tambah" class="btnkonfigurasi">
+				<input type="submit" name="tambahkonfigurasi" value="Tambah" class="btnkonfigurasi" required>
 
 				<div class="clear"></div>
 

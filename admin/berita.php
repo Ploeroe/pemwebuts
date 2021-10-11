@@ -2,7 +2,6 @@
 if (isset($_POST['add'])) {
 
 	global $gambar;
-	//cek apakah ada gambar
 	if (!empty($_FILES['gambar']['name']) && ($_FILES['gambar']['error'] !== 4)) {
 		$gambarfile_name = $_FILES['gambar']['name'];
 		$gambarfile = $_FILES['gambar']['tmp_name'];
@@ -15,23 +14,7 @@ if (isset($_POST['add'])) {
 
 		$allowtype = array('image/jpeg', 'image/jpg', 'image/png');
 
-		// if(in_array($fileActualExt,$allowtype)){
-		// 	if($gambarerror === 0){
-		// 		if($gambarsize < 500000){
-		// 			$gambarfilenew = uniqid('',true).".".$fileActualExt;
-		// 			$path = PATH_GAMBAR.'/';
-		// 			$filedest = $path.$gambarfilenew;
-		// 			move_uploaded_file($gambarfile,$filedest);
 
-		// 		} else {
-		// 			echo 'File terlalu besar!';
-		// 		}
-		// 	} else {
-		// 		echo 'Ada Error ketika mengupload file!';
-		// 	}
-		// } else {
-		// 	echo 'Invalid file type';
-		// }
 
 		if (!in_array($filetype, $allowtype)) {
 
@@ -43,14 +26,12 @@ if (isset($_POST['add'])) {
 
 		if (isset($gambarfile) && isset($gambarfile_name)) {
 
-			// $gambarbaru = preg_replace("/[^a-zA-Z0-9]/", "_", $_POST['judul']);
 			$gambarbaru = uniqid('', true) . "." . $_POST['judul'];
 
 			$dest1 = '../' . $path . $gambarbaru . '.jpg';
 			$dest2 = $path . $gambarbaru . '.jpg';
 
 			move_uploaded_file($_FILES['gambar']['tmp_name'], $dest1);
-			// copy($_FILES['gambar']['tmp_name'], $dest1);
 
 			$gambar = $dest2;
 		} else {

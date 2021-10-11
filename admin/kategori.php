@@ -52,10 +52,10 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 			<h3 class="titleform">Tambah Kategori</h3>
 			<div class="inputkategori">
 				<div class="formnama">Kategori : <br>
-					<input type="text" name="kategori" placeholder="Nama Kategori" value="<?= (isset($kategori) ? $kategori : ''); ?>" class="kotakinput">
+					<input type="text" name="kategori" placeholder="Nama Kategori" value="<?= (isset($kategori) ? $kategori : ''); ?>" class="kotakinput" required>
 				</div>
 				<div class="formnama">Alias : <br>
-					<input type="text" name="alias" placeholder="Alias" value="<?= (isset($alias) ? $alias : ''); ?>" class="kotakinput">
+					<input type="text" name="alias" placeholder="Alias" value="<?= (isset($alias) ? $alias : ''); ?>" class="kotakinput" required>
 				</div>
 				<div class="formnama">Tampilkan : <br>
 

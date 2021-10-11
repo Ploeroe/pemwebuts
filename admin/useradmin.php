@@ -99,12 +99,12 @@ if (isset($error)) {
 
 			<div class="inputadmin">
 				<label>Nama User</label><br>
-				<input class="kotakinput" type="text" name="nama" placeholder="Nama Lengkap">
+				<input class="kotakinput" type="text" name="nama" placeholder="Nama Lengkap" required>
 			</div>
 
 			<div class="inputadmin">
 				<label>Username</label><br>
-				<input class="kotakinput" type="text" name="username" placeholder="Username">
+				<input class="kotakinput" type="text" name="username" placeholder="Username" required>
 			</div>
 
 			<div class="inputadmin">
@@ -114,10 +114,10 @@ if (isset($error)) {
 
 			<div class="inputadmin">
 				<label>Email</label><br>
-				<input class="kotakinput" type="text" name="email" placeholder="Email address">
+				<input class="kotakinput" type="text" name="email" placeholder="Email address" required>
 			</div>
 
-			<input class="btntambah" type="submit" name="tambahadmin" placeholder="Registrasi">
+			<input class="btntambah" type="submit" name="tambahadmin" placeholder="Registrasi" required>
 
 		</fieldset>
 	<?php
