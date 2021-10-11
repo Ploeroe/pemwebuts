@@ -75,7 +75,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'edit') {
 			unlink('../' . $gambar);
 			$sqlupdate = mysqli_query($connect, "UPDATE berita SET Gambar='' WHERE ID='$id' ");
 
-			echo '<meta http-equiv="REFRESH" content="0;url=./?mod=berita&act=edit&id=' . $id . '" />';
+			header("location: ?/mod=berita&act=edit&id='. $id . '");
 		}
 	}
 }
@@ -93,6 +93,8 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 	}
 
 	$hapus = mysqli_query($connect, "DELETE FROM berita WHERE ID='$id' ");
+
+	header("location: ?/mod=berita");
 }
 
 ?>
