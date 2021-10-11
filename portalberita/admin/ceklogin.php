@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
 
 	if ($_POST["captcha"] != $_SESSION["code"]) {
 		$error = true;
-	} else {
+	// } else {
 
 		$username = mysqli_real_escape_string($connect, $_POST['username']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
@@ -94,7 +94,7 @@ if (empty($_SESSION["loginadmin"])) {
 				<div class="title mx-auto">
 					<img src="../image/title.png" class="imgtitle">
 				</div>
-				<div class="box mx-auto mb-5">
+				<div class="box mx-auto mb-5 p-5">
 					<form action="" method="POST">
 						<h1 class="title pb-3">Login</h1>
 						<div class="user">

@@ -95,14 +95,16 @@ if (session_id() == '') {
 												extract($r);
 
 												echo '
-							<li>
-								<a class="dropdown-item" href="./?open=cat&id=' . $ID . '">' . $Kategori . '</a>
-							</li>
-							';
+													<li>
+														<a class="dropdown-item" href="./?open=cat&id=' . $ID . '">' . $Kategori . '</a>
+													</li>
+													';
 											}
-
 											?>
-										</ul>
+												</ul>
+											<li class="nav-item">
+												<a class="nav-link" href="./?open=about">About Us</a>
+											</li>
 									</li>
 								</ul>
 								<form action="" method="GET" class="d-flex">

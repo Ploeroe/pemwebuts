@@ -53,8 +53,8 @@ while ($komen = mysqli_fetch_array($sql)) {
                     <form action="./controller/like.php" method="POST">
                     <input type="hidden" name="idberita" value=' . $idberita . '>
                     <input type="hidden" name="idkomen" value=' . $idkomen . '>
-                    <div class="tglberita">' . $totalsuka[0] . ' </div>
-                    <button class="likebutton" type="submit" name="unlike"><i class="bi bi-heart-fill"></i></button>
+                    <button class="likebutton" type="submit" name="unlike"><i class="bi bi-heart-fill"></i>
+                    <div class="tglberita">' . $totalsuka[0] . ' </div></button>
                     </form> 
                     </span>';
             } else {
@@ -65,8 +65,8 @@ while ($komen = mysqli_fetch_array($sql)) {
                     <form action="./controller/like.php" method="POST">
                     <input type="hidden" name="idberita" value=' . $idberita . '>
                     <input type="hidden" name="idkomen" value=' . $idkomen . '>
-                    <div class="tglberita">' . $totalsuka[0] . ' </div>
-                    <button class="likebutton" type="submit" name="unlike"><i class="bi bi-heart-fill"></i></button>
+                    <button class="likebutton" type="submit" name="unlike"><i class="bi bi-heart-fill"></i>
+                    <div class="tglberita">' . $totalsuka[0] . ' </div></button>
                     </form> 
                     </span>';
             }
@@ -78,8 +78,8 @@ while ($komen = mysqli_fetch_array($sql)) {
                 <form action="./controller/like.php" method="POST">
                 <input type="hidden" name="idberita" value=' . $idberita . '>
                 <input type="hidden" name="idkomen" value=' . $idkomen . '>
-                <div class="tglberita">' . $totalsuka[0] . ' </div>
-                <button class="likebutton" type="submit" name="like"><i class="bi bi-heart-fill"></i></button>
+                <button class="likebutton" type="submit" name="like"><i class="bi bi-heart-fill"></i>
+                <div class="tglberita">' . $totalsuka[0] . ' </div></button>
                 </form> 
                 </span>';
         }
@@ -91,8 +91,8 @@ while ($komen = mysqli_fetch_array($sql)) {
                 <form action="./?open=login" method="POST">
                 <input type="hidden" name="idberita" value=' . $idberita . '>
                 <input type="hidden" name="idkomen" value=' . $idkomen . '>
-                <div class="tglberita">' . $totalsuka[0] . ' </div>
-                <button class="likebutton" type="submit" name="like"><i class="bi bi-heart-fill"></i></button>
+                <button class="likebutton" type="submit" name="like"><i class="bi bi-heart-fill"></i>
+                <div class="tglberita">' . $totalsuka[0] . ' </div></button>
                 </form> 
                 </span>';
     }

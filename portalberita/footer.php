@@ -2,6 +2,10 @@
 
 	</div>
 
+	  <?php
+			$open = (isset($_GET["open"]) ? $_GET["open"] : '');
+			if ($open !== "login" && $open !== "signup") {
+		?>
 	<footer>
 	  <div class="footer py-5 mt-5">
 	    <div class="row">
@@ -49,8 +53,9 @@
 	        </div>
 	      </div>
 	    </div>
-	  </div>
-	</footer>
+	</div>
+</footer>
+<?php } ?>
 
 	<script>
 	  const swiper = new Swiper('.swiper', {
@@ -100,6 +105,21 @@
 	<script>
 	  AOS.init();
 	</script>
+			<script>
+			window.onscroll = function() {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+					document.getElementById("nav").style.padding = "0px";
+				} else {
+					document.getElementById("nav").style.padding = "5px";
+				}
+			}
+
+			
+		</script>
 	</body>
 
 	</html>
