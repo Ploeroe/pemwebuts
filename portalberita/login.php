@@ -1,7 +1,7 @@
 <?php
 include_once('./inc/fungsi.php');
 
-if(session_id() == '') {
+if (session_id() == '') {
 	session_start();
 }
 
@@ -28,8 +28,8 @@ if (isset($_POST["submit"])) {
 
 	if ($_POST["captcha"] != $_SESSION["code"]) {
 		$error = true;
-		
-    // } else {
+
+		// } else {
 
 		$username = mysqli_real_escape_string($connect, $_POST['username']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
 				$_SESSION["usergender"] = $data['gender'];
 				$_SESSION["usergambar"] = $data['gambar'];
 
-                header('Location: index.php');
+				header('Location: index.php?open=default');
 			} else {
 				$error = true;
 			}
@@ -83,65 +83,67 @@ if (empty($_SESSION["loginuser"])) {
 
 	<body>
 
-	<div class="main">
-		<div class="container ">
-			<div class="title mx-auto wow fadeInUp ">
-				<img src="image/title.png" class="imgtitle">
-			</div> <hr>
-			<div class="box mx-auto mb-5 wow fadeInUp " data-wow-delay="0.4s">
-				<div class="d-flex pe-3 pt-3">
-					<a href="?open=default" class="ms-auto icon"><i class="bi bi-x-square"></i></a>
+		<div class="main">
+			<div class="container ">
+				<div class="title mx-auto wow fadeInUp ">
+					<img src="image/title.png" class="imgtitle">
 				</div>
-				<form action="" method="POST" class="py-2 px-5">
-					<div class="d-flex">
-						<h1 class="title pb-3 mx-auto">Login</h1>
+				<hr>
+				<div class="box mx-auto mb-5 wow fadeInUp " data-wow-delay="0.4s">
+					<div class="d-flex pe-3 pt-3">
+						<a href="?open=default" class="ms-auto icon"><i class="bi bi-x-square"></i></a>
 					</div>
-					<div class="user">
-						<label>Username</label><br>
-						<input id="username" type="text" name="username" placeholder="Username" class="kotakinput" required>
-					</div> <br>
+					<form action="" method="POST" class="py-2 px-5">
+						<div class="d-flex">
+							<h1 class="title pb-3 mx-auto">Login</h1>
+						</div>
+						<div class="user">
+							<label>Username</label><br>
+							<input id="username" type="text" name="username" placeholder="Username" class="kotakinput" required>
+						</div> <br>
 
-					<div class="user">
-						<label>Password</label><br>
-						<input id="password" type="password" name="password" placeholder="Password" class="kotakinput" required>
-					</div> <br>
+						<div class="user">
+							<label>Password</label><br>
+							<input id="password" type="password" name="password" placeholder="Password" class="kotakinput" required>
+						</div> <br>
 
-					<div class="user">
-						<label>Captcha</label> <br>
-						<img src="./controller/captcha.php" alt="gambar" class="mt-3"> <br>
-						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3" required>
-					</div>
+						<div class="user">
+							<label>Captcha</label> <br>
+							<img src="./controller/captcha.php" alt="gambar" class="mt-3"> <br>
+							<input id="captcha" type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3" required>
+						</div>
 
-					<p>Don't have an account? <a href="?open=signup">Sign Up Here!</a></p>
+						<p>Don't have an account? <a href="?open=signup">Sign Up Here!</a></p>
 
-					<?php if (isset($error)) : ?>
-						<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
-					<?php endif; ?>
+						<?php if (isset($error)) : ?>
+							<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
+						<?php endif; ?>
 
-					<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
-				</form>
+						<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
+					</form>
 
 				</div>
 			</div>
 		</div>
 		<script>
-			window.onscroll = function () {
-			scrollFunction()
+			window.onscroll = function() {
+				scrollFunction()
 			};
 
 			function scrollFunction() {
-			if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-				document.getElementById("nav").style.padding = "0px";
-			} else {
-				document.getElementById("nav").style.padding = "5px";
+				if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+					document.getElementById("nav").style.padding = "0px";
+				} else {
+					document.getElementById("nav").style.padding = "5px";
+				}
 			}
-			}
-  		</script>
-		  <script src="./controller/wow.min.js"></script>
+		</script>
+		<script src="./controller/wow.min.js"></script>
 		<script>
-		new WOW().init();
+			new WOW().init();
 		</script>
 	</body>
+
 	</html>
 <?php
 	exit;
