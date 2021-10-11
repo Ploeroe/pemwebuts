@@ -1,6 +1,6 @@
 <?php
 
-define('URL_SITUS', 'http://localhost/pemwebuts/');
+define('URL_SITUS', 'https://gercepnews.loca.lt/pemwebuts/');
 define('PATH_LOGO', 'image');
 define('PATH_GAMBAR', 'photo');
 define('PATH_GAMBARUSER', 'photouser');

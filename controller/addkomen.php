@@ -33,8 +33,9 @@ if (isset($_POST['comment'])) {
             $userlast = mysqli_real_escape_string($connect, $_SESSION['userlast']);
             $usergambar = mysqli_real_escape_string($connect, $_SESSION['usergambar']);
             $komentar = mysqli_real_escape_string($connect, $_POST['komen']);
+            $tanggalKomentar = date("Y-m-d H:i:s");
 
-            $sql = mysqli_query($connect, "INSERT INTO comment (beritaid, userid, userfirst, userlast, usergambar, komentar, tanggalkomentar) VALUES ('$beritaid','$userid', '$userfirst', '$userlast', '$usergambar', '$komentar', '" . date("Y-m-d H:i:s") . "');");
+            $sql = mysqli_query($connect, "INSERT INTO comment (beritaid, userid, userfirst, userlast, usergambar, komentar, tanggalkomentar) VALUES ('$beritaid','$userid', '$userfirst', '$userlast', '$usergambar', '$komentar', '$tanggalKomentar');");
 
             $error = "Berhasil menambahkan komen baru!";
             header("location: ../?open=detail&id=$beritasekarang");
