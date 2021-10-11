@@ -3,7 +3,7 @@ include("header.php");
 
 if (isset($_GET["keluar"]) && $_GET["keluar"] == 'yes') {
 	session_destroy();
-	header('Location: ?open=default');
+	echo '<meta http-equiv="REFRESH" content="0;url=./?open=default" />';
 }
 
 ?>

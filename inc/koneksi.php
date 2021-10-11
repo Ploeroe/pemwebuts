@@ -9,6 +9,7 @@ define('FILE_ICON', 'icon.png');
 
 define('POPULER_TIME', '-1000'); //lama (hari) rentang waktu berita populer.
 
+
 $connect = new mysqli('localhost', 'root', '', 'pb');
 
 if (mysqli_connect_errno()) {

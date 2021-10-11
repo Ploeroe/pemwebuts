@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
 				$_SESSION["usergender"] = $data['gender'];
 				$_SESSION["usergambar"] = $data['gambar'];
 
-				header('Location: ./?open=default');
+				echo '<meta http-equiv="REFRESH" content="0;url=./?open=default" />';
 			} else {
 				$error2 = "Password salah";
 			}

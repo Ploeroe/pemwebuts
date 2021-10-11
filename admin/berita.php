@@ -75,7 +75,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'edit') {
 			unlink('../' . $gambar);
 			$sqlupdate = mysqli_query($connect, "UPDATE berita SET Gambar='' WHERE ID='$id' ");
 
-			echo '<meta http-equiv="Refresh" content="0;url=./?mod=berita&act=edit&id=' . $id . '" />';
+			echo '<meta http-equiv="REFRESH" content="0;url=./?mod=berita&act=edit&id=' . $id . '" />';
 		}
 	}
 }
