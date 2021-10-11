@@ -37,8 +37,6 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 	global $connect;
 
 	$sql = mysqli_query($connect, "DELETE FROM kategori WHERE ID = '$id' ");
-
-	header('Location:./?mod=kategori');
 }
 
 ?>
