@@ -1,7 +1,7 @@
 <?php
 
 include_once "../inc/koneksi.php";
-if(session_id() == '') {
+if (session_id() == '') {
     session_start();
 }
 // fitur debug yang dapat kita panggil
