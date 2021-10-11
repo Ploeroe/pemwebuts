@@ -1,57 +1,57 @@
-<?php 
-	include("header.php");
+<?php
+include("header.php");
 
-	if (isset($_GET["keluar"]) && $_GET["keluar"] == 'yes') {
-		session_destroy();
-		header('Location: index.php');
-	}
-	
+if (isset($_GET["keluar"]) && $_GET["keluar"] == 'yes') {
+	session_destroy();
+	header('Location: ?open=default');
+}
+
 ?>
 
 <div class="pt10 pb10">
-		
+
 	<?php
-	$open = (isset($_GET["open"]) ? $_GET["open"] : '') ;
+	$open = (isset($_GET["open"]) ? $_GET["open"] : '');
 
 	switch ($open) {
 		case "cat":
-		include("kategori.php");
-		break;
-		
+			include("kategori.php");
+			break;
+
 		case "detail":
-		include("detail.php");
-		break;
+			include("detail.php");
+			break;
 
 		case "cari":
-		include("cari.php");
-		break;
-		
+			include("cari.php");
+			break;
+
 		case "signup":
-		include("signup.php");
-		break;
-		
+			include("signup.php");
+			break;
+
 		case "login":
-		include("login.php");
-		break;
-		
+			include("login.php");
+			break;
+
 		case "default":
-		include("depan.php");
-		break;
+			include("depan.php");
+			break;
 
 		case "about":
-		include("about.php");
-		break;
+			include("about.php");
+			break;
 
 		default:
-		include("depan.php");
-		break;
+			include("depan.php");
+			break;
 	}
 
-	 ?>
+	?>
 
 </div>
 
 
-<?php 
+<?php
 include("footer.php");
- ?>
+?>

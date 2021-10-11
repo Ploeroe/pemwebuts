@@ -1,5 +1,5 @@
-<?=beritaterbaru(); ?>
+<?= beritaterbaru(); ?>
 
 <div class="clear"></div>
 
-<?=populer()?>
+<?= populer() ?>

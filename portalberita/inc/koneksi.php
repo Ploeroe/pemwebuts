@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 define('URL_SITUS', 'http://localhost/pemwebuts/portalberita/');
 define('PATH_LOGO', 'image');
@@ -10,11 +10,9 @@ define('FILE_ICON', 'icon.png');
 define('POPULER_TIME', '-1000'); //lama (hari) rentang waktu berita populer.
 
 
-$connect = new mysqli('localhost','root','','pb');
+$connect = new mysqli('localhost', 'root', '', 'pb');
 
-if(mysqli_connect_errno()){
+if (mysqli_connect_errno()) {
 
-	echo "Gagal Koneksi ke Database ". mysqli_connect_error();
+	echo "Gagal Koneksi ke Database " . mysqli_connect_error();
 }
-
-?>

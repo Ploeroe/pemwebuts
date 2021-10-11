@@ -1,7 +1,7 @@
 <?php
 include_once('../inc/fungsi.php');
 
-if(session_id() == '') {
+if (session_id() == '') {
 	session_start();
 }
 
@@ -22,7 +22,7 @@ function debug_to_console($data, $context = 'Debug in Console')
 
 if (isset($_GET["keluar"]) && $_GET["keluar"] == 'yes') {
 	session_destroy();
-	header('Location:index.php');
+	header('Location: ./?open=default');
 }
 
 include_once("../inc/koneksi.php");
@@ -33,8 +33,7 @@ if (isset($_POST["submit"])) {
 
 	if ($_POST["captcha"] != $_SESSION["code"]) {
 		$error = true;
-		
-    } else {
+	} else {
 
 		$username = mysqli_real_escape_string($connect, $_POST['username']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
@@ -79,63 +78,64 @@ if (empty($_SESSION["loginadmin"])) {
 	</head>
 
 	<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
-		<div class="container">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<a class="navbar-brand" href="#">
-					<img src="../image/News.png" alt="" width="30" height="30">
-				</a>
-			</ul>
-			<!-- <span class="btnlogout"><a href="#">Sign Up</a></span> -->
-		</div>
-	</nav>
-
-	<div class="main">
-		<div class="container">
-			<div class="title mx-auto">
-				<img src="../image/title.png" class="imgtitle">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav">
+			<div class="container">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<a class="navbar-brand" href="#">
+						<img src="../image/News.png" alt="" width="30" height="30">
+					</a>
+				</ul>
+				<!-- <span class="btnlogout"><a href="#">Sign Up</a></span> -->
 			</div>
-			<div class="box mx-auto mb-5">
-				<form action="" method="POST">
-					<h1 class="title pb-3">Login</h1>
-					<div class="user">
-						<label>Username</label><br>
-						<input id="username" type="text" name="username" placeholder="Username" class="kotakinput" required>
-					</div> <br>
+		</nav>
 
-					<div class="user">
-						<label>Password</label><br>
-						<input id="password" type="password" name="password" placeholder="Password" class="kotakinput" required>
-					</div> <br>
+		<div class="main">
+			<div class="container">
+				<div class="title mx-auto">
+					<img src="../image/title.png" class="imgtitle">
+				</div>
+				<div class="box mx-auto mb-5">
+					<form action="" method="POST">
+						<h1 class="title pb-3">Login</h1>
+						<div class="user">
+							<label>Username</label><br>
+							<input id="username" type="text" name="username" placeholder="Username" class="kotakinput" required>
+						</div> <br>
 
-					<div class="user">
-						<label>Captcha</label> <br>
-						<img src="../controller/captcha.php" alt="gambar" class="mt-3">
-						<input id="captcha"type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3" required>
-					</div>
-					<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
-				</form>
+						<div class="user">
+							<label>Password</label><br>
+							<input id="password" type="password" name="password" placeholder="Password" class="kotakinput" required>
+						</div> <br>
 
-				<?php if (isset($error)) : ?>
-					<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
-				<?php endif; ?>
+						<div class="user">
+							<label>Captcha</label> <br>
+							<img src="../controller/captcha.php" alt="gambar" class="mt-3">
+							<input id="captcha" type="text" name="captcha" placeholder="Input Captcha (Case Sensitive)" class="kotakinput mt-3" required>
+						</div>
+						<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
+					</form>
+
+					<?php if (isset($error)) : ?>
+						<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
 		<script>
-			window.onscroll = function () {
-			scrollFunction()
+			window.onscroll = function() {
+				scrollFunction()
 			};
 
 			function scrollFunction() {
-			if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-				document.getElementById("nav").style.padding = "0px";
-			} else {
-				document.getElementById("nav").style.padding = "5px";
+				if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+					document.getElementById("nav").style.padding = "0px";
+				} else {
+					document.getElementById("nav").style.padding = "5px";
+				}
 			}
-			}
-  		</script>
+		</script>
 	</body>
+
 	</html>
 <?php
 	exit;

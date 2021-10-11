@@ -21,15 +21,16 @@ while ($komen = mysqli_fetch_array($sql)) {
     $totalsuka = mysqli_fetch_array($totallike);
 
     echo ' 
-                <div class="row">
-                    <div class="col-1">
-                        <img class="imgkomen" src="' . $usergambar . '">
-                    </div>
-                    <div class="col-9 ms-3 mb-3">
-                        <div class="komenberita">' . $userfirst . ' ' . $userlast . '</div>
-                        <div class="teks-foto">' . nl2br($komentar) . '</div>
-                        <div class="tglberita"> Published : ' . $tanggalkomentar . ' </div>
-                    </div>';
+        <div class="row">
+            <div class="col-1">
+                <img class="imgkomen" src="' . $usergambar . '">
+            </div>
+            <div class="col-9 ms-3 mb-3">
+                <div class="komenberita">' . $userfirst . ' ' . $userlast . '</div>
+                <div class="teks-foto">' . nl2br($komentar) . '</div>
+                <div class="tglberita"> Published : ' . $tanggalkomentar . ' </div>
+            </div>
+        ';
 
 
 
@@ -39,8 +40,11 @@ while ($komen = mysqli_fetch_array($sql)) {
         $likekomen = mysqli_fetch_array($likesql);
     }
 
+    // Cek login 
     if (isset($_SESSION['userid'])) {
+        // Cek ada database
         if (isset($likekomen)) {
+            // Cek status dengan userid spesifik login 
             if ($likekomen['status'] == 1 && $likekomen['userid'] == $_SESSION['userid']) {
                 echo '
                     <div class="col-1 text-end">
@@ -50,7 +54,7 @@ while ($komen = mysqli_fetch_array($sql)) {
                     <input type="hidden" name="idberita" value=' . $idberita . '>
                     <input type="hidden" name="idkomen" value=' . $idkomen . '>
                     <div class="tglberita">' . $totalsuka[0] . ' </div>
-                    <button class="likebutton" type="submit" name="like"><i class="bi bi-heart-fill"></i></button>
+                    <button class="likebutton" type="submit" name="unlike"><i class="bi bi-heart-fill"></i></button>
                     </form> 
                     </span>';
             } else {
@@ -62,7 +66,7 @@ while ($komen = mysqli_fetch_array($sql)) {
                     <input type="hidden" name="idberita" value=' . $idberita . '>
                     <input type="hidden" name="idkomen" value=' . $idkomen . '>
                     <div class="tglberita">' . $totalsuka[0] . ' </div>
-                    <button class="likebutton" type="submit" name="like"><i class="bi bi-heart-fill"></i></button>
+                    <button class="likebutton" type="submit" name="unlike"><i class="bi bi-heart-fill"></i></button>
                     </form> 
                     </span>';
             }

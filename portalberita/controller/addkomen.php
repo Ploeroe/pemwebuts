@@ -23,17 +23,17 @@ function debug_to_console($data, $context = 'Debug in Console')
 
 if (isset($_POST['comment'])) {
     $beritasekarang = $_POST['idberita'];
-    
+
     if (isset($_SESSION['userid'])) {
         if (isset($_POST['komen'])) {
-            
+
             $beritaid = mysqli_real_escape_string($connect, $_POST['idberita']);
             $userid = mysqli_real_escape_string($connect, $_SESSION['userid']);
             $userfirst = mysqli_real_escape_string($connect, $_SESSION['userfirst']);
             $userlast = mysqli_real_escape_string($connect, $_SESSION['userlast']);
             $usergambar = mysqli_real_escape_string($connect, $_SESSION['usergambar']);
             $komentar = mysqli_real_escape_string($connect, $_POST['komen']);
-            
+
             $sql = mysqli_query($connect, "INSERT INTO comment (beritaid, userid, userfirst, userlast, usergambar, komentar, tanggalkomentar) VALUES ('$beritaid','$userid', '$userfirst', '$userlast', '$usergambar', '$komentar', '" . date("Y-m-d H:i:s") . "');");
 
             $error = "Berhasil menambahkan komen baru!";

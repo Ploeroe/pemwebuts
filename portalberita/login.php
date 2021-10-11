@@ -1,35 +1,15 @@
 <?php
-include_once('./inc/fungsi.php');
-
 if (session_id() == '') {
 	session_start();
 }
-
-// fitur debug yang dapat kita panggil
-// contoh : debug_to_console($data);
-function debug_to_console($data, $context = 'Debug in Console')
-{
-
-	// Buffering to solve problems frameworks, like header() in this and not a solid return.
-	ob_start();
-
-	$output  = 'console.info(\'' . $context . ':\');';
-	$output .= 'console.log(' . json_encode($data) . ');';
-	$output  = sprintf('<script>%s</script>', $output);
-
-	echo $output;
-}
-
-include_once("./inc/koneksi.php");
 
 if (isset($_POST["submit"])) {
 
 	global $connect;
 
 	if ($_POST["captcha"] != $_SESSION["code"]) {
-		$error = true;
-
-		// } else {
+		$error1 = "Captcha salah";
+	} else {
 
 		$username = mysqli_real_escape_string($connect, $_POST['username']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
@@ -54,18 +34,19 @@ if (isset($_POST["submit"])) {
 				$_SESSION["usergender"] = $data['gender'];
 				$_SESSION["usergambar"] = $data['gambar'];
 
-				header('Location: index.php?open=default');
+				header('Location: ./?open=default');
 			} else {
-				$error = true;
+				$error2 = "Password salah";
 			}
 		} else {
-			$error = true;
+			$error3 = "Username tidak ditemukan";
 		}
 	}
 }
+?>
 
+<?php
 if (empty($_SESSION["loginuser"])) {
-
 ?>
 
 	<!DOCTYPE html>
@@ -102,10 +83,12 @@ if (empty($_SESSION["loginuser"])) {
 							<input id="username" type="text" name="username" placeholder="Username" class="kotakinput" required>
 						</div> <br>
 
+
 						<div class="user">
 							<label>Password</label><br>
 							<input id="password" type="password" name="password" placeholder="Password" class="kotakinput" required>
 						</div> <br>
+
 
 						<div class="user">
 							<label>Captcha</label> <br>
@@ -115,13 +98,24 @@ if (empty($_SESSION["loginuser"])) {
 
 						<p>Don't have an account? <a href="?open=signup">Sign Up Here!</a></p>
 
-						<?php if (isset($error)) : ?>
-							<p style="color: red; font-style:italic;">Username / password / recaptcha salah</p>
-						<?php endif; ?>
+						<?php
+						if (isset($error1)) {
+						?>
+							<p style="color: red; font-style:italic;"><?php echo $error1; ?> !</p>
+						<?php
+						} elseif (isset($error2)) {
+						?>
+							<p style="color: red; font-style:italic;"><?php echo $error2; ?> !</p>
+						<?php
+						} elseif (isset($error3)) {
+						?>
+							<p style="color: red; font-style:italic;"><?php echo $error3; ?> !</p>
+						<?php
+						}
+						?>
 
-						<input type="submit" name="submit" value="Login" class="btnlogin mt-3">
+						<input type="submit" name="submit" class="btnlogin mt-3">
 					</form>
-
 				</div>
 			</div>
 		</div>
