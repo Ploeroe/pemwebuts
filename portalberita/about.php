@@ -24,28 +24,28 @@
       <div class="col-lg-3 col-md- mt-5">
         <div class="profile" data-aos="fade-right"  data-aos-duration="1000">
           <h2 class="profile__name">Joanne Kessie</h2>
-          <p>00000043458</p>
+          <p class="text-foto">00000043458</p>
           <img alt="Joanne Kessie" src="./image/joen.jpg" width=800 class="rounded" />
         </div>
       </div>
       <div class="col-lg-3 col-md- mt-5">
         <div  class="profile" data-aos="fade-down"  data-aos-duration="1000">
           <h2 class="profile__name">Raphael Gregorius</h2>
-          <p>00000043340</p>
+          <p class="text-foto">00000043340</p>
           <img alt="./image/joen.jpg" src="./image/pael.jpg"width=800 class="rounded" />
         </div>
       </div>
       <div class="col-lg-3 col-md- mt-5">
         <div class="profile" data-aos="fade-up"  data-aos-duration="1000">
           <h2 class="profile__name">Nehemia Gueldi</h2>
-          <p>000000</p>
+          <p class="text-foto">00000043202</p>
           <img alt="Nehemia Gueldi" src="./image/nehe.jpg"width=800 class="rounded" />
         </div>
       </div>
       <div class="col-lg-3 col-md- mt-5">
         <div class="profile" data-aos="fade-left"  data-aos-duration="1000">
           <h2 class="profile__name">Yonas Kurnia</h2>
-          <p>00000042669</p>
+          <p class="text-foto">00000042669</p>
           <img alt="Yonas Kurnia" src="./image/yonas.jpg" width=800 class="rounded"/>
         </div>
       </div>
