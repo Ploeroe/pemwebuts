@@ -49,7 +49,7 @@ if (session_id() == '') {
 					<li class="nav-item mt-2">
 						<img class="imgnav" src=<?php echo " $usergambar"; ?>>
 					</li>
-					<span class="btnlogout ms-2"><a href="./?keluar=yes">Log Out</a></span>
+					<span class="btnlogout ms-2"><a href="?keluar=yes">Log Out</a></span>
 
 				<?php
 			} else {
@@ -101,10 +101,10 @@ if (session_id() == '') {
 													';
 											}
 											?>
-												</ul>
-											<li class="nav-item">
-												<a class="nav-link" href="./?open=about">About Us</a>
-											</li>
+										</ul>
+									<li class="nav-item">
+										<a class="nav-link" href="./?open=about">About Us</a>
+									</li>
 									</li>
 								</ul>
 								<form action="" method="GET" class="d-flex">

@@ -15,7 +15,6 @@ if (isset($_POST['add'])) {
 		$allowtype = array('image/jpeg', 'image/jpg', 'image/png');
 
 
-
 		if (!in_array($filetype, $allowtype)) {
 
 			echo 'Invalid file type';
@@ -27,6 +26,7 @@ if (isset($_POST['add'])) {
 		if (isset($gambarfile) && isset($gambarfile_name)) {
 
 			$gambarbaru = uniqid('', true) . "." . $_POST['judul'];
+
 
 			$dest1 = '../' . $path . $gambarbaru . '.jpg';
 			$dest2 = $path . $gambarbaru . '.jpg';
@@ -75,7 +75,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'edit') {
 			unlink('../' . $gambar);
 			$sqlupdate = mysqli_query($connect, "UPDATE berita SET Gambar='' WHERE ID='$id' ");
 
-			header("location: ?/mod=berita&act=edit&id='. $id . '");
+			echo '<meta http-equiv="Refresh" content="0;url=./?mod=berita&act=edit&id=' . $id . '" />';
 		}
 	}
 }
@@ -89,12 +89,13 @@ if (isset($_GET['act']) && $_GET['act'] == 'hapus') {
 	while ($b = mysqli_fetch_array($sql)) {
 
 		$gbr = $b['Gambar'];
-		unlink('../' . $gbr);
+		if (!empty($gbr->Gambar)) {
+			unlink('../' . $gbr);
+		}
+		header("location: ?mod=berita");
 	}
 
 	$hapus = mysqli_query($connect, "DELETE FROM berita WHERE ID='$id' ");
-
-	header("location: ?/mod=berita");
 }
 
 ?>
